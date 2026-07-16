@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wenjing WeChat Article"
+  short_description: "WeChat article writing workflow for Wenjing projects"
+  default_prompt: "Use $wenjing-wechat-article to write a polished WeChat public account article from my topic and audience."

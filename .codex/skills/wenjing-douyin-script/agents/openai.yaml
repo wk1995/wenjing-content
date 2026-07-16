@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wenjing Douyin Script"
+  short_description: "Douyin short-video script workflow for Wenjing"
+  default_prompt: "Use $wenjing-douyin-script to create a Douyin short-video script and storyboard from my product brief."

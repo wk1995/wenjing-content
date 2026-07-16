@@ -1,85 +1,55 @@
 ---
 name: wenjing-douyin-script
-description: [TODO: Complete and informative explanation of what the skill does and when to use it. Include WHEN to use this skill - specific scenarios, file types, or tasks that trigger it.]
+description: Douyin short-video script workflow for Wenjing content projects. Use when the user asks for 抖音脚本, 短视频脚本, 种草视频, 带货脚本, 千川素材, 竞品视频拆解, 爆款拆解, 视频分镜, 口播稿, or Chinese social commerce video scripts.
 ---
 
-# Wenjing Douyin Script
+# 文镜抖音脚本
 
-## Overview
+Use this skill to create Douyin short-video scripts, competitor breakdowns, and shot-by-shot storyboards for Wenjing content projects.
 
-[TODO: 1-2 sentences explaining what this skill enables]
+## Workflow
 
-## Structuring This Skill
+1. Collect product and campaign facts: product name, category, selling points, target audience, price, target duration, video type, CTA, and compliance boundaries.
+2. If competitor videos are provided, analyze them before writing. Focus on the first 3 seconds, visual hook, copy hook, pacing, product proof, CTA, and compliance risks.
+3. If no competitor videos are provided, state that the result is based on general category patterns and ask for videos only when the missing data blocks the task.
+4. Generate a reusable formula: hook type, opening sentence pattern, shot rhythm, proof path, selling point order, and CTA.
+5. Write the full spoken script and storyboard.
+6. Audit for oral delivery, hook strength, timing, platform compliance, and AI-flavored phrasing.
 
-[TODO: Choose the structure that best fits this skill's purpose. Common patterns:
+## References
 
-**1. Workflow-Based** (best for sequential processes)
-- Works well when there are clear step-by-step procedures
-- Example: DOCX skill with "Workflow Decision Tree" -> "Reading" -> "Creating" -> "Editing"
-- Structure: ## Overview -> ## Workflow Decision Tree -> ## Step 1 -> ## Step 2...
+Read these files only when needed:
 
-**2. Task-Based** (best for tool collections)
-- Works well when the skill offers different operations/capabilities
-- Example: PDF skill with "Quick Start" -> "Merge PDFs" -> "Split PDFs" -> "Extract Text"
-- Structure: ## Overview -> ## Quick Start -> ## Task Category 1 -> ## Task Category 2...
+- `references/analysis-framework.md`: use for competitor video breakdowns and formula extraction.
+- `references/script-output.md`: use when generating full scripts and shot tables.
+- `references/compliance-checklist.md`: use before finalizing commerce, beauty, health, finance, education, or ad-delivery scripts.
 
-**3. Reference/Guidelines** (best for standards or specifications)
-- Works well for brand guidelines, coding standards, or requirements
-- Example: Brand styling with "Brand Guidelines" -> "Colors" -> "Typography" -> "Features"
-- Structure: ## Overview -> ## Guidelines -> ## Specifications -> ## Usage...
+## Video Types
 
-**4. Capabilities-Based** (best for integrated systems)
-- Works well when the skill provides multiple interrelated features
-- Example: Product Management with "Core Capabilities" -> numbered capability list
-- Structure: ## Overview -> ## Core Capabilities -> ### 1. Feature -> ### 2. Feature...
+- 种草视频: friend-like recommendation, stronger scene and experience, softer CTA, default 30 seconds.
+- 千川投放素材: denser information, direct selling points, harder CTA, default 15 seconds.
 
-Patterns can be mixed and matched as needed. Most skills combine patterns (e.g., start with task-based, add workflow for complex operations).
+## First 3 Seconds
 
-Delete this entire "Structuring This Skill" section when done - it's just guidance.]
+Design the opening as two synchronized hooks:
 
-## [TODO: Replace with the first main section based on chosen structure]
+- Copy hook: pain, data, contradiction, scenario, curiosity, or benefit.
+- Visual hook: product stack, abrupt change, action impact, text pop-up, POV scene, unusual result, or high-density first frame.
 
-[TODO: Add content here. See examples in existing skills:
-- Code samples for technical skills
-- Decision trees for complex workflows
-- Concrete examples with realistic user requests
-- References to scripts/templates/references as needed]
+The first frame must be describable as a paused image that still gives the viewer a reason to keep watching.
 
-## Resources (optional)
+## Output
 
-Create only the resource directories this skill actually needs. Delete this section if no resources are required.
+Return in this order unless the user requests a different format:
 
-### scripts/
-Executable code (Python/Bash/etc.) that can be run directly to perform specific operations.
+1. 爆款公式摘要
+2. 完整脚本 with estimated timing
+3. 分镜表
+4. 审校修改清单
+5. 合规风险提示
 
-**Examples from other skills:**
-- PDF skill: `fill_fillable_fields.py`, `extract_form_field_info.py` - utilities for PDF manipulation
-- DOCX skill: `document.py`, `utilities.py` - Python modules for document processing
+Use this shot table:
 
-**Appropriate for:** Python scripts, shell scripts, or any executable code that performs automation, data processing, or specific operations.
-
-**Note:** Scripts may be executed without loading into context, but can still be read by Codex for patching or environment adjustments.
-
-### references/
-Documentation and reference material intended to be loaded into context to inform Codex's process and thinking.
-
-**Examples from other skills:**
-- Product management: `communication.md`, `context_building.md` - detailed workflow guides
-- BigQuery: API reference documentation and query examples
-- Finance: Schema documentation, company policies
-
-**Appropriate for:** In-depth documentation, API references, database schemas, comprehensive guides, or any detailed information that Codex should reference while working.
-
-### assets/
-Files not intended to be loaded into context, but rather used within the output Codex produces.
-
-**Examples from other skills:**
-- Brand styling: PowerPoint template files (.pptx), logo files
-- Frontend builder: HTML/React boilerplate project directories
-- Typography: Font files (.ttf, .woff2)
-
-**Appropriate for:** Templates, boilerplate code, document templates, images, icons, fonts, or any files meant to be copied or used in the final output.
-
----
-
-**Not every skill requires all three types of resources.**
+```text
+| 镜号 | 时长 | 景别 | 画面内容 | 旁白/字幕 | 拍摄建议 |
+```

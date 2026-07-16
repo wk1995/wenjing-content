@@ -1,85 +1,64 @@
 ---
 name: wenjing-wechat-article
-description: [TODO: Complete and informative explanation of what the skill does and when to use it. Include WHEN to use this skill - specific scenarios, file types, or tasks that trigger it.]
+description: WeChat public account article workflow for Wenjing content projects. Use when the user asks to write, plan, rewrite, polish, title, or format a 微信公众号文章, 微信文章, 自媒体长文, 爆款文章, 教程文章, or long-form Chinese content for official account publishing.
 ---
 
-# Wenjing Wechat Article
+# 文镜公众号文章
 
-## Overview
+Use this skill to produce publication-ready WeChat public account articles for the Wenjing repository.
 
-[TODO: 1-2 sentences explaining what this skill enables]
+## Workflow
 
-## Structuring This Skill
+1. Clarify the brief if essential information is missing: topic, reader, goal, angle, word count, references, and call to action.
+2. Search or verify current facts when the topic depends on recent products, policies, prices, events, tools, or public claims.
+3. Build a short outline before drafting: opening hook, reader problem, core argument, method or examples, summary, CTA.
+4. Draft in Chinese with a clear story or tension in the opening. Prefer 1000-1500 Chinese characters unless the user asks otherwise.
+5. Generate 3-5 title options after the draft, not before the argument is clear.
+6. Add formatting suggestions for WeChat: paragraph breaks, bold emphasis, image positions, quote-worthy lines, and ending prompt.
 
-[TODO: Choose the structure that best fits this skill's purpose. Common patterns:
+## Article Pattern
 
-**1. Workflow-Based** (best for sequential processes)
-- Works well when there are clear step-by-step procedures
-- Example: DOCX skill with "Workflow Decision Tree" -> "Reading" -> "Creating" -> "Editing"
-- Structure: ## Overview -> ## Workflow Decision Tree -> ## Step 1 -> ## Step 2...
+Use this structure by default:
 
-**2. Task-Based** (best for tool collections)
-- Works well when the skill offers different operations/capabilities
-- Example: PDF skill with "Quick Start" -> "Merge PDFs" -> "Split PDFs" -> "Extract Text"
-- Structure: ## Overview -> ## Quick Start -> ## Task Category 1 -> ## Task Category 2...
+```text
+标题
 
-**3. Reference/Guidelines** (best for standards or specifications)
-- Works well for brand guidelines, coding standards, or requirements
-- Example: Brand styling with "Brand Guidelines" -> "Colors" -> "Typography" -> "Features"
-- Structure: ## Overview -> ## Guidelines -> ## Specifications -> ## Usage...
+开头：故事、结果、冲突、反常识或问题
 
-**4. Capabilities-Based** (best for integrated systems)
-- Works well when the skill provides multiple interrelated features
-- Example: Product Management with "Core Capabilities" -> numbered capability list
-- Structure: ## Overview -> ## Core Capabilities -> ### 1. Feature -> ### 2. Feature...
+问题：读者正在遇到什么具体困境
 
-Patterns can be mixed and matched as needed. Most skills combine patterns (e.g., start with task-based, add workflow for complex operations).
+解释：为什么这个问题值得重视
 
-Delete this entire "Structuring This Skill" section when done - it's just guidance.]
+方法：步骤、清单、案例或操作建议
 
-## [TODO: Replace with the first main section based on chosen structure]
+升华：把方法上升为观点或判断
 
-[TODO: Add content here. See examples in existing skills:
-- Code samples for technical skills
-- Decision trees for complex workflows
-- Concrete examples with realistic user requests
-- References to scripts/templates/references as needed]
+结尾：总结 + 行动引导
+```
 
-## Resources (optional)
+## Title Rules
 
-Create only the resource directories this skill actually needs. Delete this section if no resources are required.
+Make titles specific and reader-facing.
 
-### scripts/
-Executable code (Python/Bash/etc.) that can be run directly to perform specific operations.
+- Include pain, result, number, conflict, curiosity, or concrete benefit.
+- Avoid empty clickbait that the article cannot deliver.
+- For professional topics, keep the title credible rather than noisy.
+- Provide a recommended title and alternatives with different angles.
 
-**Examples from other skills:**
-- PDF skill: `fill_fillable_fields.py`, `extract_form_field_info.py` - utilities for PDF manipulation
-- DOCX skill: `document.py`, `utilities.py` - Python modules for document processing
+## Style Rules
 
-**Appropriate for:** Python scripts, shell scripts, or any executable code that performs automation, data processing, or specific operations.
+- Write like a sharp human editor, not a product manual.
+- Use concrete scenes and examples before abstract conclusions.
+- Keep paragraphs short enough for mobile reading.
+- Avoid generic AI phrasing such as "在当今时代", "值得注意的是", "综上所述".
+- If making claims from external information, identify the source or explain that it is an inference.
 
-**Note:** Scripts may be executed without loading into context, but can still be read by Codex for patching or environment adjustments.
+## Output
 
-### references/
-Documentation and reference material intended to be loaded into context to inform Codex's process and thinking.
+Return in this order:
 
-**Examples from other skills:**
-- Product management: `communication.md`, `context_building.md` - detailed workflow guides
-- BigQuery: API reference documentation and query examples
-- Finance: Schema documentation, company policies
-
-**Appropriate for:** In-depth documentation, API references, database schemas, comprehensive guides, or any detailed information that Codex should reference while working.
-
-### assets/
-Files not intended to be loaded into context, but rather used within the output Codex produces.
-
-**Examples from other skills:**
-- Brand styling: PowerPoint template files (.pptx), logo files
-- Frontend builder: HTML/React boilerplate project directories
-- Typography: Font files (.ttf, .woff2)
-
-**Appropriate for:** Templates, boilerplate code, document templates, images, icons, fonts, or any files meant to be copied or used in the final output.
-
----
-
-**Not every skill requires all three types of resources.**
+1. 推荐标题
+2. 备选标题
+3. 正文
+4. 排版建议
+5. 配图建议

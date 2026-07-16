@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wenjing Xiaohongshu Copy"
+  short_description: "Xiaohongshu note copywriting workflow for Wenjing"
+  default_prompt: "Use $wenjing-xiaohongshu-copy to turn my product or idea into an authentic Xiaohongshu note."
