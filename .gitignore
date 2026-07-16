@@ -1,0 +1,19 @@
+# Local content outputs
+writing/_temp/
+_temp/
+
+# Video and large media drafts
+*.mp4
+*.mov
+*.mkv
+*.avi
+
+# Secrets
+.env
+.env.*
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
