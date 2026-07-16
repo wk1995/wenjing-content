@@ -154,10 +154,11 @@ juejin/
 
 ## 本地 Codex Skills
 
-仓库内置了三个文镜专用 Skill：
+仓库内置了四个文镜专用 Skill：
 
 | Skill | 入口 |
 | --- | --- |
+| `$wenjing-news-article-drafter` | `.codex/skills/wenjing-news-article-drafter/SKILL.md` |
 | `$wenjing-wechat-article` | `.codex/skills/wenjing-wechat-article/SKILL.md` |
 | `$wenjing-douyin-script` | `.codex/skills/wenjing-douyin-script/SKILL.md` |
 | `$wenjing-xiaohongshu-copy` | `.codex/skills/wenjing-xiaohongshu-copy/SKILL.md` |
@@ -165,6 +166,8 @@ juejin/
 示例：
 
 ```text
+使用 $wenjing-news-article-drafter，收集过去 7 天端侧 AI 更新，写入 projects/2026-07-edge-ai-weekly/ 的 sources.md、research/topic-research.md 和 wechat/article.md。
+
 使用 $wenjing-wechat-article，基于 projects/2026-07-edge-ai-intro/wechat/article.md 写一篇端侧 AI 公众号文章。
 
 使用 $wenjing-douyin-script，基于 projects/2026-07-edge-ai-intro/douyin/script.md 生成一条 30 秒技术科普视频脚本。

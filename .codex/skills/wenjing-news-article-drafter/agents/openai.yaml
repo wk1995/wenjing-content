@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wenjing News Article Drafter"
+  short_description: "Source-backed article research and drafting"
+  default_prompt: "Use $wenjing-news-article-drafter to research a topic over a date range and draft a sourced Chinese article."
