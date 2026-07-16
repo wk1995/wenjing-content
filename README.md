@@ -1,32 +1,80 @@
 # wenjing-content
 
-文镜内容仓库，用来管理多平台内容项目、平台模板、写作流程、专题方法论和本地 Codex Skill。
+文镜内容仓库，用来管理多平台内容项目、项目调研、内容方案、平台成稿、可复用模板、写作流程和本地 Codex Skill。
 
-这个仓库会长期包含多个内容项目。每个项目都放在 `projects/` 下，项目内部再按平台拆分公众号、小红书、抖音、掘金等具体内容。
+这个仓库的核心单位是“项目”。每个项目都放在 `projects/` 下，项目内部再按平台拆分微信公众号、小红书、抖音、掘金等具体内容。方案、选题调研和资料来源都属于具体项目，不放在全局目录。
+
+## 适用内容
+
+- 微信公众号：技术科普、教程长文、自媒体观点文、带资料搜索的深度内容。
+- 小红书：种草笔记、产品推荐、教程笔记、品牌语气和正文文案。
+- 抖音：技术科普短视频、种草脚本、千川投放素材、竞品视频拆解。
+- 掘金：技术文章、实战教程、源码解析、工程经验沉淀。
+
+## 内容生命周期
+
+```text
+选题调研 -> 项目方案 -> 共用大纲/核心观点 -> 平台内容 -> 审校 -> 发布 -> 复盘
+```
+
+对应文件：
+
+| 阶段 | 文件 |
+| --- | --- |
+| 原始需求 | `projects/{project}/brief.md` |
+| 选题调研 | `projects/{project}/research/topic-research.md` |
+| 内容方案 | `projects/{project}/plan.md` |
+| 资料来源 | `projects/{project}/sources.md` |
+| 共用素材 | `projects/{project}/shared/` |
+| 平台内容 | `projects/{project}/{platform}/` |
+| 项目复盘 | `projects/{project}/README.md` |
 
 ## 快速开始
 
-1. 在 `projects/` 下创建一个项目文件夹，例如 `projects/2026-07-edge-ai-intro/`。
-2. 从 `templates/project/` 复制项目级模板，建立 `README.md`、`brief.md`、`plan.md`、`sources.md` 和 `research/topic-research.md`。
-3. 在项目目录下按需创建平台文件夹，例如 `wechat/`、`xiaohongshu/`、`douyin/`、`juejin/`。
-4. 从 `templates/platforms/` 复制对应平台模板到项目的平台文件夹。
-5. 按 `docs/workflows/` 的流程完成调研、方案、创作、审校和发布。
+1. 创建项目目录：
+
+   ```text
+   projects/YYYY-MM-topic-slug/
+   ```
+
+2. 从 `templates/project/` 复制项目级模板：
+
+   ```text
+   README.md
+   brief.md
+   plan.md
+   sources.md
+   research/topic-research.md
+   shared/outline.md
+   shared/key-points.md
+   ```
+
+3. 按需创建平台目录，并从 `templates/platforms/` 复制平台模板：
+
+   ```text
+   wechat/article.md
+   xiaohongshu/note.md
+   douyin/script.md
+   douyin/storyboard.md
+   juejin/article.md
+   ```
+
+4. 按 `docs/workflows/` 中的平台流程完成调研、方案、创作、审校和发布。
 
 ## 目录导航
 
 | 路径 | 用途 |
 | --- | --- |
-| `projects/` | 具体内容项目。项目内存放 brief、方案、选题调研、资料来源、共用素材和各平台内容 |
-| `templates/project/` | 项目级模板：项目 README、原始 brief、方案、资料来源、选题调研 |
+| `projects/` | 具体内容项目。每个项目独立存放 brief、调研、方案、资料、共用素材和平台内容 |
+| `templates/project/` | 项目级模板：项目 README、brief、方案、资料来源、选题调研、共用素材 |
 | `templates/platforms/` | 平台级模板：微信公众号、小红书、抖音、掘金等内容模板 |
 | `templates/CHANGELOG.md` | 模板更新记录 |
-| `docs/workflows/` | 平台级内容生产流程，说明输入、步骤、产出和审校要求 |
+| `docs/workflows/` | 平台级内容生产流程 |
 | `docs/skills/` | 可复用的写作能力、专题方法论和选题规范 |
-| `.codex/skills/` | 本仓库专用 Codex Skill，让 Codex 按文镜流程执行任务 |
+| `.codex/skills/` | 本仓库专用 Codex Skill |
+| `AGENTS.md` | 给 Codex/代理使用的仓库工作规则 |
 
-## 项目结构
-
-推荐每个项目使用下面的结构：
+## 推荐项目结构
 
 ```text
 projects/{project-slug}/
@@ -51,16 +99,29 @@ projects/{project-slug}/
     └── article.md
 ```
 
-归属规则：
+## 命名规范
 
-- `brief.md`：原始需求、受众、目标和内容边界。
-- `research/topic-research.md`：选题调研、竞品内容、关键词、受众洞察和角度判断。
-- `plan.md`：项目方案、平台拆分、排期、风险和复用资产。
-- `sources.md`：项目资料来源、可引用事实和不确定信息。
-- `shared/`：跨平台共用大纲、核心观点、案例、图表说明。
-- `{platform}/`：对应平台的具体成稿、脚本、分镜或发布稿。
+项目目录推荐：
 
-方案和选题调研都归属于具体项目，不放在仓库全局目录里。全局只保留模板和通用方法。
+```text
+YYYY-MM-topic-slug
+```
+
+示例：
+
+```text
+projects/2026-07-edge-ai-intro/
+projects/2026-07-local-llm-guide/
+```
+
+平台目录固定使用英文：
+
+```text
+wechat/
+xiaohongshu/
+douyin/
+juejin/
+```
 
 ## 模板体系
 
@@ -80,23 +141,16 @@ projects/{project-slug}/
 | [抖音分镜模板](templates/platforms/douyin/storyboard.md) | 项目下 `douyin/storyboard.md` 的分镜基础 |
 | [掘金文章模板](templates/platforms/juejin/article.md) | 项目下 `juejin/article.md` 的内容基础 |
 
-模板更新时需要记录到 [模板更新记录](templates/CHANGELOG.md)。项目内容文件应保留模板名和版本，方便后续追踪。
+模板更新时必须记录到 [模板更新记录](templates/CHANGELOG.md)。项目内容文件应保留模板名和版本，方便后续追踪。
 
 ## 工作流
 
-| 文件 | 适用场景 | 对应模板 |
-| --- | --- | --- |
-| [微信公众号文章工作流](docs/workflows/wechat-article.md) | 公众号长文、教程、观点文、爆款标题和排版建议 | [公众号文章模板](templates/platforms/wechat/article.md) |
-| [微信公众号技术文工作流](docs/workflows/wechat-tech-article.md) | AI、开发工具、端侧技术、效率工具等技术科普 | [公众号文章模板](templates/platforms/wechat/article.md)、[端侧 AI 公众号模板](templates/platforms/wechat/edge-ai-article.md) |
-| [抖音视频文案工作流](docs/workflows/douyin-script.md) | 技术科普、产品种草、短视频脚本、千川素材和竞品拆解 | [抖音脚本模板](templates/platforms/douyin/script.md) |
-| [小红书正文文案工作流](docs/workflows/xiaohongshu-copy.md) | 小红书笔记、产品推荐、品牌语气和口语化文案 | [小红书笔记模板](templates/platforms/xiaohongshu/note.md) |
-
-## 专题沉淀
-
-| 文件 | 内容 |
+| 文件 | 适用场景 |
 | --- | --- |
-| [写作 Skill 清单](docs/skills/writing-skills.md) | 当前使用的通用写作类 Codex Skill、安装命令和平台选择建议 |
-| [端侧 AI 公众号内容提炼](docs/skills/edge-ai-wechat-content.md) | 从“整理端侧 AI 资讯”对话中提炼出的端侧 AI 科普文定位、结构、实践基线和后续选题 |
+| [微信公众号文章工作流](docs/workflows/wechat-article.md) | 公众号长文、教程、观点文、爆款标题和排版建议 |
+| [微信公众号技术文工作流](docs/workflows/wechat-tech-article.md) | AI、开发工具、端侧技术、效率工具等技术科普 |
+| [抖音视频文案工作流](docs/workflows/douyin-script.md) | 技术科普、产品种草、短视频脚本、千川素材和竞品拆解 |
+| [小红书正文文案工作流](docs/workflows/xiaohongshu-copy.md) | 小红书笔记、产品推荐、品牌语气和口语化文案 |
 
 ## 本地 Codex Skills
 
@@ -108,7 +162,7 @@ projects/{project-slug}/
 | `$wenjing-douyin-script` | `.codex/skills/wenjing-douyin-script/SKILL.md` |
 | `$wenjing-xiaohongshu-copy` | `.codex/skills/wenjing-xiaohongshu-copy/SKILL.md` |
 
-日常可以这样向 Codex 发起任务：
+示例：
 
 ```text
 使用 $wenjing-wechat-article，基于 projects/2026-07-edge-ai-intro/wechat/article.md 写一篇端侧 AI 公众号文章。
@@ -116,6 +170,19 @@ projects/{project-slug}/
 使用 $wenjing-douyin-script，基于 projects/2026-07-edge-ai-intro/douyin/script.md 生成一条 30 秒技术科普视频脚本。
 
 使用 $wenjing-xiaohongshu-copy，把 projects/2026-07-edge-ai-intro/wechat/article.md 改成小红书笔记。
+```
+
+## 状态字段
+
+建议在项目和内容文件的 front matter 中使用：
+
+```yaml
+status: draft | researching | planned | review | ready | published | archived
+template: platforms/wechat/article
+template_version: 2026-07-16
+platform: wechat
+publish_url:
+publish_date:
 ```
 
 ## 内容原则
