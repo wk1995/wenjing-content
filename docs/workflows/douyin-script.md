@@ -108,4 +108,4 @@
 
 ## 需求模板
 
-使用 [抖音视频脚本需求模板](../../templates/briefs/douyin-script-brief.md)。
+使用 [抖音视频脚本需求模板](../../templates/platforms/douyin/script.md)。

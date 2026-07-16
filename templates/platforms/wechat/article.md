@@ -1,5 +1,12 @@
 # 公众号文章需求模板
 
+---
+template: platforms/wechat/article
+template_version: 2026-07-16
+platform: wechat
+status: draft
+---
+
 ## 基本信息
 
 - 文章主题：
@@ -30,3 +37,4 @@
 - 备选标题：
 - 排版建议：
 - 配图建议：
+

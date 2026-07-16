@@ -64,4 +64,4 @@
 
 ## 需求模板
 
-使用 [公众号文章需求模板](../../templates/briefs/wechat-article-brief.md)。
+使用 [公众号文章需求模板](../../templates/platforms/wechat/article.md)。

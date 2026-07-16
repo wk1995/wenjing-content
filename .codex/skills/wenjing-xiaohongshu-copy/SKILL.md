@@ -7,6 +7,12 @@ description: Xiaohongshu copywriting workflow for Wenjing content projects. Use 
 
 Use this skill to turn a product, idea, story, or article into authentic Xiaohongshu-style Chinese note copy.
 
+## Repository Placement
+
+- Write concrete Xiaohongshu notes under `projects/{project-slug}/xiaohongshu/`.
+- Use `templates/platforms/xiaohongshu/note.md` as the platform template.
+- Project-level research, sources, and plans belong in `projects/{project-slug}/research/`, `sources.md`, and `plan.md`, not in global template folders.
+
 ## Workflow
 
 1. Identify the content type: tutorial, review, seeding, checklist, personal story, or brand note.

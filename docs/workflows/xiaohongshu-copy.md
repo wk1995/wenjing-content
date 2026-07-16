@@ -70,4 +70,4 @@
 
 ## 需求模板
 
-使用 [小红书笔记需求模板](../../templates/briefs/xiaohongshu-note-brief.md)。
+使用 [小红书笔记需求模板](../../templates/platforms/xiaohongshu/note.md)。

@@ -97,4 +97,4 @@
 
 ## 需求模板
 
-通用文章使用 [公众号文章需求模板](../../templates/briefs/wechat-article-brief.md)，端侧 AI 主题可使用 [端侧 AI 公众号文章 Brief](../../templates/briefs/edge-ai-wechat-article.md)。
+通用文章使用 [公众号文章需求模板](../../templates/platforms/wechat/article.md)，端侧 AI 主题可使用 [端侧 AI 公众号文章 Brief](../../templates/platforms/wechat/edge-ai-article.md)。

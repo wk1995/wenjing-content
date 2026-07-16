@@ -1,5 +1,12 @@
 # 小红书笔记需求模板
 
+---
+template: platforms/xiaohongshu/note
+template_version: 2026-07-16
+platform: xiaohongshu
+status: draft
+---
+
 ## 基本信息
 
 - 笔记主题：
@@ -31,3 +38,4 @@
 - CTA：
 - 标签：
 - 标题方向：
+

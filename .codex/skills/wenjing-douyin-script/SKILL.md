@@ -7,6 +7,13 @@ description: Douyin short-video script workflow for Wenjing content projects. Us
 
 Use this skill to create Douyin short-video scripts, competitor breakdowns, and shot-by-shot storyboards for Wenjing content projects.
 
+## Repository Placement
+
+- Write concrete scripts under `projects/{project-slug}/douyin/script.md`.
+- Write shot-by-shot storyboards under `projects/{project-slug}/douyin/storyboard.md`.
+- Use `templates/platforms/douyin/script.md` and `templates/platforms/douyin/storyboard.md` as platform templates.
+- Competitor research and reusable formula extraction belong in `projects/{project-slug}/research/topic-research.md` or `plan.md`, not in global template folders.
+
 ## Workflow
 
 1. Collect product and campaign facts: product name, category, selling points, target audience, price, target duration, video type, CTA, and compliance boundaries.

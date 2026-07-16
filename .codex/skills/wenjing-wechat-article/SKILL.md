@@ -7,6 +7,13 @@ description: WeChat public account article workflow for Wenjing content projects
 
 Use this skill to produce publication-ready WeChat public account articles for the Wenjing repository.
 
+## Repository Placement
+
+- Write concrete article drafts under `projects/{project-slug}/wechat/`.
+- Use `templates/platforms/wechat/article.md` as the default platform template.
+- For edge AI topics, use `templates/platforms/wechat/edge-ai-article.md` when the project brief calls for it.
+- Project-level research, sources, and plans belong in `projects/{project-slug}/research/`, `sources.md`, and `plan.md`, not in global template folders.
+
 ## Workflow
 
 1. Clarify the brief if essential information is missing: topic, reader, goal, angle, word count, references, and call to action.
