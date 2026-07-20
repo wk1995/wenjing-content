@@ -1,11 +1,13 @@
 ---
 name: tardiformatter-wechat-format
-description: Prepare, format, and hand off Markdown drafts for WeChat public account publishing with tardiai/tardiformatter. Use when the user mentions tardiformatter, Tardi formatter, Markdown公众号排版器, 微信公众号排版, copying Markdown into the WeChat editor, choosing a tardiformatter style, or turning Wenjing project Markdown into copy-ready WeChat rich text.
+description: "Prepare, format, and hand off Markdown drafts for WeChat public account publishing with tardiai/tardiformatter. Source repository: https://github.com/tardiai/tardiformatter. Use when the user mentions tardiformatter, Tardi formatter, Markdown公众号排版器, 微信公众号排版, copying Markdown into the WeChat editor, choosing a tardiformatter style, or turning Wenjing project Markdown into copy-ready WeChat rich text."
 ---
 
 # Tardiformatter WeChat Format
 
 Use this skill to prepare Wenjing Markdown drafts for `tardiai/tardiformatter`, a browser-based Markdown formatter for WeChat public account articles.
+
+Source repository: https://github.com/tardiai/tardiformatter
 
 ## Core Workflow
 
