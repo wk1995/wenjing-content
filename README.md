@@ -14,7 +14,7 @@
 ## 内容生命周期
 
 ```text
-选题调研 -> 项目方案 -> 共用大纲/核心观点 -> 平台内容 -> 审校 -> 发布 -> 复盘
+选题调研 -> 项目方案 -> sources.md 整理资料和单篇结构 -> 平台输出内容 -> 审校 -> 发布 -> 复盘
 ```
 
 对应文件：
@@ -24,9 +24,9 @@
 | 原始需求 | `projects/{project}/brief.md` |
 | 选题调研 | `projects/{project}/research/topic-research.md` |
 | 内容方案 | `projects/{project}/plan.md` |
-| 资料来源 | `projects/{project}/sources.md` |
-| 共用素材 | `projects/{project}/shared/` |
-| 平台内容 | `projects/{project}/{platform}/` |
+| 资料来源、可引用事实、单篇大纲、标题池、配图建议 | `projects/{project}/sources.md` |
+| 跨平台共用主线和关键表达 | `projects/{project}/shared/` |
+| 平台输出内容 | `projects/{project}/{platform}/` |
 | 项目复盘 | `projects/{project}/README.md` |
 
 ## 快速开始
@@ -59,13 +59,15 @@
    juejin/article.md
    ```
 
-4. 按 `docs/workflows/` 中的平台流程完成调研、方案、创作、审校和发布。
+4. 在 `sources.md` 中整理单篇大纲、标题池、资料来源、可引用事实和配图建议；平台目录只保留对应平台的输出内容。
+
+5. 按 `docs/workflows/` 中的平台流程完成调研、方案、创作、审校和发布。
 
 ## 目录导航
 
 | 路径 | 用途 |
 | --- | --- |
-| `projects/` | 具体内容项目。每个项目独立存放 brief、调研、方案、资料、共用素材和平台内容 |
+| `projects/` | 具体内容项目。每个项目独立存放 brief、调研、方案、资料、共用素材和平台输出内容 |
 | `templates/project/` | 项目级模板：项目 README、brief、方案、资料来源、选题调研、共用素材 |
 | `templates/platforms/` | 平台级模板：微信公众号、小红书、抖音、掘金等内容模板 |
 | `templates/CHANGELOG.md` | 模板更新记录 |
@@ -130,7 +132,7 @@ juejin/
 | [项目 README 模板](templates/project/README.md) | 创建项目简介和项目结构说明 |
 | [项目 Brief 模板](templates/project/brief.md) | 记录原始需求、目标受众和内容边界 |
 | [项目方案模板](templates/project/plan.md) | 记录整体方案、平台拆分和排期 |
-| [资料来源模板](templates/project/sources.md) | 记录项目资料来源和可引用事实 |
+| [资料来源模板](templates/project/sources.md) | 记录项目资料来源、可引用事实、单篇大纲、标题池和配图建议 |
 | [选题调研模板](templates/project/research/topic-research.md) | 记录选题背景、竞品内容、受众洞察和角度判断 |
 | [共用大纲模板](templates/project/shared/outline.md) | 记录跨平台复用的内容主线 |
 | [核心观点模板](templates/project/shared/key-points.md) | 记录关键事实、可复用表达和风险表达 |
@@ -201,7 +203,8 @@ publish_date:
 
 - 新增具体内容项目：放到 `projects/{project-slug}/`。
 - 新增项目级信息：放到项目目录下的 `brief.md`、`plan.md`、`sources.md` 或 `research/`。
-- 新增平台内容：放到项目目录下的 `{platform}/`。
+- 新增单篇大纲、标题池、配图建议、参考资料：统一放到项目 `sources.md`。
+- 新增平台输出内容：放到项目目录下的 `{platform}/`，不要在平台目录中混放大纲和资料整理文件。
 - 新增稳定流程：放到 `docs/workflows/`。
 - 新增可复用选题、专题框架或写作方法：放到 `docs/skills/`。
 - 新增或修改模板：放到 `templates/`，并更新 `templates/CHANGELOG.md`。

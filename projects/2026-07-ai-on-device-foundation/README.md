@@ -47,14 +47,14 @@ status: planning
 │   └── key-points.md
 └── wechat/
     ├── series-plan.md
-    └── article-01-outline.md
+    └── article-01.md
 ```
 
 ## 平台规划
 
 | 平台 | 内容形式 | 状态 | 文件 |
 | --- | --- | --- | --- |
-| 微信公众号 | 系列科普、趋势、实践文章 | planning | `wechat/series-plan.md` |
+| 微信公众号 | 系列科普、趋势、实践文章 | drafting | `wechat/series-plan.md`、`wechat/article-01.md` |
 | 小红书 | 暂不展开，后续可做轻科普卡片 | backlog |  |
 | 抖音 | 暂不展开，后续可做 60 秒概念解释 | backlog |  |
 | 掘金 | 后续可做偏技术实践版 | backlog |  |
@@ -62,8 +62,9 @@ status: planning
 ## 当前进展
 
 - 已建立项目结构。
-- 已完成项目 brief、方案、选题调研和公众号系列大纲。
-- 下一步建议先写第一篇公众号文章：《AI 为什么开始走进手机和电脑？一篇读懂端侧 AI》。
+- 已完成项目 brief、方案、选题调研、公众号系列规划和第一篇公众号草稿。
+- 第一篇的大纲、标题池、资料来源和配图建议已统一放在 `sources.md`。
+- 下一步建议继续审校第一篇公众号文章：《AI 为什么开始走进手机和电脑？一篇读懂端侧 AI》。
 
 ## 复盘
 
@@ -71,4 +72,3 @@ status: planning
 - 数据表现：
 - 可复用经验：
 - 下次调整：
-

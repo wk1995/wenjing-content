@@ -13,15 +13,17 @@ Use this skill to produce publication-ready WeChat public account articles for t
 - Use `templates/platforms/wechat/article.md` as the default platform template.
 - For edge AI topics, use `templates/platforms/wechat/edge-ai-article.md` when the project brief calls for it.
 - Project-level research, sources, and plans belong in `projects/{project-slug}/research/`, `sources.md`, and `plan.md`, not in global template folders.
+- Store single-article outlines, title options, source lists, citation facts, layout suggestions, and image suggestions in `projects/{project-slug}/sources.md`.
+- Keep files under `projects/{project-slug}/wechat/` focused on WeChat output content only.
 
 ## Workflow
 
 1. Clarify the brief if essential information is missing: topic, reader, goal, angle, word count, references, and call to action.
 2. Search or verify current facts when the topic depends on recent products, policies, prices, events, tools, or public claims.
-3. Build a short outline before drafting: opening hook, reader problem, core argument, method or examples, summary, CTA.
+3. Build a short outline before drafting and record it in `sources.md`: opening hook, reader problem, core argument, method or examples, summary, CTA.
 4. Draft in Chinese with a clear story or tension in the opening. Prefer 1000-1500 Chinese characters unless the user asks otherwise.
-5. Generate 3-5 title options after the draft, not before the argument is clear.
-6. Add formatting suggestions for WeChat: paragraph breaks, bold emphasis, image positions, quote-worthy lines, and ending prompt.
+5. Generate 3-5 title options after the draft, not before the argument is clear, and record them in `sources.md`.
+6. Add formatting suggestions for WeChat in `sources.md`: paragraph breaks, bold emphasis, image positions, quote-worthy lines, and ending prompt.
 
 ## Article Pattern
 
@@ -64,8 +66,7 @@ Make titles specific and reader-facing.
 
 Return in this order:
 
-1. 推荐标题
-2. 备选标题
-3. 正文
-4. 排版建议
-5. 配图建议
+1. File paths updated
+2. Recommended title and alternatives if useful
+3. Summary of article changes
+4. Where supporting outline, sources, formatting suggestions, and image suggestions were recorded

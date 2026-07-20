@@ -12,7 +12,8 @@ Use this skill to turn a topic and time range into a sourced article draft insid
 - Put all concrete work under `projects/{project-slug}/`.
 - Record source material in `projects/{project-slug}/sources.md`.
 - Record topic research in `projects/{project-slug}/research/topic-research.md`.
-- Put cross-platform article structure in `projects/{project-slug}/shared/outline.md`.
+- Put single-article outlines, title options, citation facts, layout suggestions, and image suggestions in `projects/{project-slug}/sources.md`.
+- Put only cross-platform reusable structure in `projects/{project-slug}/shared/outline.md`.
 - Draft WeChat articles in `projects/{project-slug}/wechat/article.md`.
 - Draft developer-facing articles in `projects/{project-slug}/juejin/article.md`.
 - Do not put project-specific research or article drafts in `templates/`.
@@ -30,6 +31,7 @@ Use this skill to turn a topic and time range into a sourced article draft insid
 3. Fill project research files.
    - Add source rows to `sources.md` using IDs like `S1`, `S2`, `S3`.
    - Add key facts to `sources.md` with the source IDs that support them.
+   - Add single-article outlines, title options, and platform-specific layout or image suggestions to `sources.md`.
    - Add audience insights, competing/reference content, keyword trails, and viable angles to `research/topic-research.md` when the task includes research or topic planning.
 4. Draft the article in Markdown.
    - Keep source annotations in the body as `[S1]`, `[S2]`, etc.
@@ -39,7 +41,8 @@ Use this skill to turn a topic and time range into a sourced article draft insid
 5. Adapt the draft to the platform.
    - WeChat: use `templates/platforms/wechat/article.md` or `edge-ai-article.md`, with a scene-led opening and mobile-friendly paragraphs.
    - Juejin: use `templates/platforms/juejin/article.md`, with reproducible steps, code/environment notes, and engineering caveats.
-   - Shared planning: put reusable structure and phrasing in `shared/outline.md` and `shared/key-points.md`.
+   - Platform article files: keep them focused on output content only.
+   - Shared planning: put reusable cross-platform structure and phrasing in `shared/outline.md` and `shared/key-points.md`.
 6. Keep the article as a draft unless the user explicitly asks to publish or mark it ready.
 
 ## Length Presets

@@ -1,8 +1,6 @@
-# AI 为什么开始走进手机和电脑？一篇读懂端侧 AI
-
 ---
 template: platforms/wechat/edge-ai-article
-template_version: 2026-07-16
+template_version: 2026-07-20
 platform: wechat
 status: draft
 date: 2026-07-20
@@ -11,22 +9,7 @@ series: "端侧 AI 观察"
 article_no: 1
 ---
 
-## 推荐标题
-
-AI 为什么开始走进手机和电脑？一篇读懂端侧 AI
-
-## 备选标题
-
-1. 你的手机里真的有 AI 吗？普通人也能看懂的端侧 AI
-2. 不靠云端，AI 能在自己的电脑上跑起来吗？
-3. 我想从这篇开始，认真观察端侧 AI
-4. 低配置电脑也绕不开 AI：先从端侧 AI 说起
-
-## 摘要
-
-这是“端侧 AI 观察”系列的第一篇。文章从普通人已经接触过的实时字幕、视频会议美化、写作工具和相册处理讲起，说明 AI、云端 AI、端侧 AI 和端云协同的区别。最后给出一个不需要编程的设备自查清单，帮助读者理解自己的电脑或手机处在什么位置。
-
-## 正文
+# AI 为什么开始走进手机和电脑？一篇读懂端侧 AI
 
 我最近想认真写一个系列，主题叫“端侧 AI”。
 
@@ -281,36 +264,3 @@ AI 正在变成设备的一部分。
 先知道它在哪里运行，再知道自己的设备能做什么。等这些判断清楚了，再看具体体验会更稳。
 
 下一篇，我会继续把“模型、训练、推理”这几个词讲明白。理解它们以后，再看任何 AI 工具，都会少一点迷糊。
-
-## 排版建议
-
-- 标题下配一张“手机、电脑、云端服务器连接”的示意图。
-- 开头示例可以配一张四宫格：实时字幕、视频会议背景虚化、写作工具、相册搜索。
-- “云端 AI / 端侧 AI / 端云协同”对比表建议保留。
-- “设备自查”表格可以做成公众号卡片图，方便读者收藏。
-- 重点加粗句：
-  - 端侧 AI 最早进入普通人生活的方式，往往不是万能助手，而是一个个具体小功能。
-  - 低配置不是被 AI 排除在外，只是不能用旗舰设备的标准去期待它。
-  - 先知道它在哪里运行，再知道自己的设备能做什么。
-
-## 配图建议
-
-1. 首图：手机、电脑、本地芯片、云端服务器的简洁关系图。
-2. 开头图：普通人已经接触到的端侧 AI 场景四宫格。
-3. 中段图：云端 AI、端侧 AI、端云协同三列对比。
-4. 结尾图：低配置设备自查清单。
-
-## 参考资料
-
-- [S1] Microsoft Learn：Use local AI with Microsoft Foundry on Windows
-- [S2] Android Developers：Gemini Nano
-- [S3] Google Developers：Google AI Edge
-- [S4] Apple Developer Documentation：Foundation Models
-- [S5] Google Developers：ML Kit GenAI APIs
-- [S6] Google Help：Live Caption: Caption media & calls on your device
-- [S7] Microsoft Learn：Windows Studio Effects Overview
-- [S8] Apple：Apple Intelligence
-- [S9] Apple Support：Use Writing Tools with Apple Intelligence on iPhone
-- [S10] Steam Hardware & Software Survey：June 2026
-- [S11] Counterpoint Research：Global Smartphone Average DRAM Hits Record 8.4GB in 2025
-- [S12] IDC：How the memory crisis is reshaping the PC and smartphone outlook

@@ -17,9 +17,11 @@
 
 1. 具体内容必须写进 `projects/{project-slug}/`。
 2. 方案、选题调研、资料来源都归属于具体项目。
-3. `templates/` 只放空白模板，不放具体项目内容。
-4. 修改模板时必须更新 `templates/CHANGELOG.md`。
-5. 不要把临时下载视频、原始大媒体文件、密钥、`.env` 或中间产物提交进仓库。
+3. 单篇大纲、标题池、参考资料、配图建议等写作结构写进项目 `sources.md`。
+4. 平台目录只放对应平台的输出内容，例如文章正文、笔记正文、脚本和分镜。
+5. `templates/` 只放空白模板，不放具体项目内容。
+6. 修改模板时必须更新 `templates/CHANGELOG.md`。
+7. 不要把临时下载视频、原始大媒体文件、密钥、`.env` 或中间产物提交进仓库。
 
 ## 新建项目
 
@@ -60,8 +62,8 @@ juejin/
 | 原始需求 | `projects/{project}/brief.md` |
 | 选题调研 | `projects/{project}/research/topic-research.md` |
 | 内容方案 | `projects/{project}/plan.md` |
-| 资料来源 | `projects/{project}/sources.md` |
-| 跨平台大纲 | `projects/{project}/shared/outline.md` |
+| 资料来源、可引用事实、单篇大纲、标题池、配图建议 | `projects/{project}/sources.md` |
+| 跨平台共用主线 | `projects/{project}/shared/outline.md` |
 | 核心观点和可复用表达 | `projects/{project}/shared/key-points.md` |
 | 公众号文章 | `projects/{project}/wechat/article.md` |
 | 小红书笔记 | `projects/{project}/xiaohongshu/note.md` |
@@ -76,9 +78,10 @@ juejin/
 1. 阅读项目 `brief.md`。
 2. 若主题依赖事实、趋势或近期信息，先补 `sources.md` 和 `research/topic-research.md`。
 3. 在 `plan.md` 中确定核心观点、平台拆分和风险边界。
-4. 在 `shared/` 中沉淀跨平台共用大纲和关键表达。
-5. 再写具体平台内容。
-6. 完成后检查状态字段、引用来源、模板版本和平台适配。
+4. 在 `sources.md` 中整理单篇大纲、标题池、资料来源、可引用事实和配图建议。
+5. 在 `shared/` 中沉淀跨平台共用主线和关键表达。
+6. 再写具体平台输出内容。
+7. 完成后检查状态字段、引用来源、模板版本和平台适配。
 
 ## 平台规则
 
@@ -150,4 +153,3 @@ docs: add douyin script
 - 路径、文件名和平台目录使用英文 slug。
 - 内容文件可以中文命名，但平台入口文件优先使用稳定名称，如 `article.md`、`note.md`、`script.md`。
 - 文档应简洁、可执行，避免只写抽象原则。
-
