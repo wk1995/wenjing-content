@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tardiformatter WeChat Format"
+  short_description: "Use tardiformatter to prepare WeChat Markdown drafts"
+  default_prompt: "Use $tardiformatter-wechat-format to prepare this Markdown article for WeChat publishing."
