@@ -36,6 +36,9 @@ status: draft
 | S7 | 官方文档 | Microsoft Learn：Windows Studio Effects Overview | https://learn.microsoft.com/en-us/windows/apps/develop/windows-integration/studio-effects | 2026-05 左右 | 2026-07-20 | Windows 会议摄像头/麦克风 AI 效果示例 | 高 |
 | S8 | 官方页面 | Apple：Apple Intelligence | https://www.apple.com/apple-intelligence/ | 持续更新 | 2026-07-20 | Apple Intelligence 端侧处理与 Private Cloud Compute 背景 | 高 |
 | S9 | 官方帮助 | Apple Support：Use Writing Tools with Apple Intelligence on iPhone | https://support.apple.com/guide/iphone/find-the-right-words-with-writing-tools-iph6f08da1d2/ios | 持续更新 | 2026-07-20 | 写作工具、摘要、校对、改写等日常 AI 示例 | 高 |
+| S10 | 官方调查 | Steam Hardware & Software Survey：June 2026 | https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam | 2026-06 | 2026-07-20 | PC 内存分布参考：4GB、8GB、16GB、32GB 占比 | 中高 |
+| S11 | 研究机构 | Counterpoint Research：Global Smartphone Average DRAM Hits Record 8.4GB in 2025 | https://counterpointresearch.com/en/insights/Global-Smartphone-Average-DRAM-Hits-Record-8.4GB-in-2025 | 2026-02-26 | 2026-07-20 | 智能手机平均 DRAM 参考 | 中高 |
+| S12 | 研究机构 | IDC：How the memory crisis is reshaping the PC and smartphone outlook | https://www.idc.com/resource-center/blog/higher-asps-lower-unit-volumes-how-the-memory-crisis-is-reshaping-the-pc-and-smartphone-outlook/ | 2026-02-26 | 2026-07-20 | 内存价格影响 PC/手机配置，8GB/12GB 档位变化 | 中高 |
 
 ## 可引用事实
 
@@ -49,10 +52,13 @@ status: draft
 | Android Live Caption 可以为设备上的媒体和通话语音生成字幕 | S6 | 微信公众号 | 作为普通用户已接触端侧/本地 AI 能力的例子 |
 | Windows Studio Effects 在兼容 NPU 的 Windows 设备上提供背景虚化、眼神校正、自动取景、语音聚焦等 AI 效果 | S7 | 微信公众号 | 作为 PC 端侧 AI 场景例子 |
 | Apple Intelligence 结合设备端处理和 Private Cloud Compute，写作工具可用于校对、改写和摘要 | S8/S9 | 微信公众号 | 用于说明端云协同，不写成完全本地 |
+| Steam 2026 年 6 月硬件调查中，4GB 系统内存为 1.44%，8GB 为 7.76%，16GB 为 41.57%，32GB 为 36.79% | S10 | 微信公众号 | Steam 样本偏游戏用户，不代表全体 PC，但可说明 4GB 已非常边缘 |
+| Counterpoint 报告称 2025 年 12 月全球智能手机平均 DRAM 达 8.4GB | S11 | 微信公众号 | 用于修正 Android/手机硬件基线 |
+| IDC 提到受内存价格影响，原本 12GB/256GB 的手机可能以 8GB/128GB 配置上市，低端市场受冲击更大 | S12 | 微信公众号 | 用于说明 8GB 更像当下低配/基础档，4GB 不宜作为主流假设 |
 | 端侧 AI 不等同于云端大模型完整本地化，需要根据设备能力选择任务和模型 | S1-S5 | 微信公众号 | 属于基于多来源的项目判断 |
 
 ## 不确定信息
 
 - 第一篇实践工具选择。
-- 适合 4GB 内存设备的替代实验。
+- 适合极低配/老设备的替代观察方案。
 - Android 端最低可接受设备配置。
