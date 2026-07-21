@@ -164,7 +164,7 @@ juejin/
 
 ## 本地 Codex Skills
 
-仓库内置了文镜专用 Skill，并可配合用户目录中的通用写作 Skill：
+仓库内置了文镜专用 Skill：
 
 | Skill | 入口 |
 | --- | --- |
@@ -173,7 +173,7 @@ juejin/
 | `$wenjing-douyin-script` | `.codex/skills/wenjing-douyin-script/SKILL.md` |
 | `$wenjing-xiaohongshu-copy` | `.codex/skills/wenjing-xiaohongshu-copy/SKILL.md` |
 | `$tardiformatter-wechat-format` | `.codex/skills/tardiformatter-wechat-format/SKILL.md` |
-| `$wechat-article-writer` | `C:/Users/wk/.codex/skills/wechat-article-writer/SKILL.md` |
+| `$wechat-article-writer` | `.codex/skills/wechat-article-writer/SKILL.md` |
 
 示例：
 
