@@ -14,6 +14,7 @@ Source repository: https://github.com/tardiai/tardiformatter
 1. Locate the article draft, usually `projects/{project-slug}/wechat/article.md`.
 2. Clean the Markdown before formatting:
    - Keep one clear title at the top.
+   - Remove repository-only front matter before copying into any publishing editor.
    - Use short mobile-friendly paragraphs.
    - Keep lists simple and flat when possible.
    - Use fenced code blocks with a language tag for technical articles.
@@ -24,6 +25,14 @@ Source repository: https://github.com/tardiai/tardiformatter
 5. Validate in the WeChat editor, because the final compatibility check happens after paste.
 
 Read `references/tardiformatter-operation.md` when you need implementation details, local run commands, style keys, image behavior, or troubleshooting.
+
+## Copy/Paste Handoff
+
+- If the user wants to paste directly into the WeChat public account editor, default to a plain Unicode Markdown clipboard payload: article title + body only, no YAML front matter.
+- Do not hand-craft HTML rich-text clipboard payloads for WeChat. If HTML is needed, use tardiformatter's browser preview and its own copy button.
+- If the WeChat editor shows "detected Markdown syntax", tell the user to use its conversion action after pasting the plain Markdown.
+- If a paste turns into mojibake or raw `<section ...>` HTML, clear the clipboard and replace it with plain Unicode text immediately.
+- Keep the committed repository draft as Markdown. Treat rich text as a publishing handoff format, not a source artifact.
 
 ## Style Selection
 
@@ -41,6 +50,7 @@ Read `references/tardiformatter-operation.md` when you need implementation detai
 - If images are local files, tell the user to paste or drag them into the browser formatter during final layout; keep repository drafts on stable local paths or source URLs.
 - Avoid raw HTML unless necessary. Tardiformatter is optimized for Markdown input plus its own inline-style conversion.
 - For rich text copied from Feishu, Notion, Word, or web pages, use tardiformatter's paste conversion, then inspect the Markdown before copying to WeChat.
+- For Wenjing drafts, keep source references in a readable "资料来源" section or in `sources.md`; do not leave internal markers such as `[S1]` in a copy-ready public article unless the user explicitly wants citation markers.
 
 ## Verification
 
@@ -50,4 +60,5 @@ Before considering the work done:
 2. Check that the selected style matches the article's tone and platform goal.
 3. If the article has images, verify every image appears in preview and after paste into WeChat.
 4. If the article has code blocks or tables, paste into WeChat and inspect them manually.
-5. Note any remaining manual step clearly, such as final paste into the WeChat editor or image replacement from the media library.
+5. If preparing direct clipboard handoff, verify the clipboard contains readable Chinese plain text, not raw HTML or mojibake.
+6. Note any remaining manual step clearly, such as clicking WeChat's Markdown conversion action, final paste into the WeChat editor, or image replacement from the media library.

@@ -154,9 +154,17 @@ juejin/
 | [抖音视频文案工作流](docs/workflows/douyin-script.md) | 技术科普、产品种草、短视频脚本、千川素材和竞品拆解 |
 | [小红书正文文案工作流](docs/workflows/xiaohongshu-copy.md) | 小红书笔记、产品推荐、品牌语气和口语化文案 |
 
+### 微信公众号发布交付
+
+- 仓库中的公众号稿保留 front matter，用于记录模板、状态、日期、系列等元信息。
+- 直接复制到微信公众号编辑器前，应先生成“粘贴稿”：去掉 front matter，只保留标题、正文和读者可见的资料来源。
+- 公众号编辑器检测到 Markdown 后，可以使用其“转换格式”功能；需要更完整的富文本样式时，使用 Markdown 公众号排版器或 `.codex/skills/tardiformatter-wechat-format`。
+- 不要把手写 HTML、`<section ...>`、`img://...`、内部 `[S1]` 引用标记或写作备注放进发布正文。
+- 若通过剪贴板交付，优先使用纯 Unicode 文本。不要把自制 HTML 富文本直接塞给微信公众号编辑器，容易出现乱码或源码粘贴。
+
 ## 本地 Codex Skills
 
-仓库内置了四个文镜专用 Skill：
+仓库内置了文镜专用 Skill，并可配合用户目录中的通用写作 Skill：
 
 | Skill | 入口 |
 | --- | --- |
@@ -164,6 +172,8 @@ juejin/
 | `$wenjing-wechat-article` | `.codex/skills/wenjing-wechat-article/SKILL.md` |
 | `$wenjing-douyin-script` | `.codex/skills/wenjing-douyin-script/SKILL.md` |
 | `$wenjing-xiaohongshu-copy` | `.codex/skills/wenjing-xiaohongshu-copy/SKILL.md` |
+| `$tardiformatter-wechat-format` | `.codex/skills/tardiformatter-wechat-format/SKILL.md` |
+| `$wechat-article-writer` | `C:/Users/wk/.codex/skills/wechat-article-writer/SKILL.md` |
 
 示例：
 
@@ -175,6 +185,8 @@ juejin/
 使用 $wenjing-douyin-script，基于 projects/2026-07-edge-ai-intro/douyin/script.md 生成一条 30 秒技术科普视频脚本。
 
 使用 $wenjing-xiaohongshu-copy，把 projects/2026-07-edge-ai-intro/wechat/article.md 改成小红书笔记。
+
+使用 $tardiformatter-wechat-format，把 projects/2026-07-edge-ai-intro/wechat/article.md 准备成可复制到微信公众号编辑器的粘贴稿。
 ```
 
 ## 状态字段

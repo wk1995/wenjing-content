@@ -91,6 +91,10 @@ juejin/
 - 单篇要独立完整，不写成教材章节。
 - 技术内容先给场景，再解释概念。
 - 使用 `docs/workflows/wechat-article.md` 或 `docs/workflows/wechat-tech-article.md`。
+- 平台稿可保留 front matter；直接交付给微信公众号编辑器前必须准备无 front matter 的粘贴稿。
+- 粘贴稿只放标题、正文和读者可见的资料来源，不保留 `[S1]` 等内部资料编号、写作备注或标题池。
+- 直接写入剪贴板时优先使用纯 Unicode Markdown；不要自行构造 HTML 富文本剪贴板，避免公众号编辑器出现乱码或粘出 `<section ...>` 源码。
+- 需要富文本样式时，使用 Markdown 公众号排版器或 `tardiformatter-wechat-format`，并在微信编辑器中最终检查表格、引用块和图片。
 
 ### 小红书
 
