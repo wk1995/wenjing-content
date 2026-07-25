@@ -1,6 +1,9 @@
 # Local content outputs
 writing/_temp/
 _temp/
+_downloads/
+__pycache__/
+*.pyc
 
 # Video and large media drafts
 *.mp4

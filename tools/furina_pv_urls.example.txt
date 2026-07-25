@@ -1,0 +1,10 @@
+# One video/post URL per line.
+# Keep only URLs you are allowed to download and use.
+#
+# Examples:
+# https://www.bilibili.com/video/BVxxxxxxxxxx
+# https://www.youtube.com/watch?v=xxxxxxxxxxx
+# https://www.douyin.com/video/0000000000000000000
+# https://www.tiktok.com/@account/video/0000000000000000000
+# https://twitter.com/account/status/0000000000000000000
+# https://weibo.com/0000000000/xxxxxxxxx
