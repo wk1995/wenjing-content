@@ -1,4 +1,4 @@
-# 项目来源与文件索引
+﻿# 项目来源与文件索引
 
 ---
 template: project/sources
@@ -16,11 +16,17 @@ status: draft
 - [video/芙宁娜PV字幕设计规范.docx](video/%E8%8A%99%E5%AE%81%E5%A8%9CPV%E5%AD%97%E5%B9%95%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.docx)
 - [video/芙宁娜PV素材需求清单.xlsx](video/%E8%8A%99%E5%AE%81%E5%A8%9CPV%E7%B4%A0%E6%9D%90%E9%9C%80%E6%B1%82%E6%B8%85%E5%8D%95.xlsx)
 
+## 平台输出文件
+
+- [douyin/script.md](douyin/script.md)：按真实音频 `3:44.25` 重排的抖音短视频脚本
+- [douyin/storyboard.md](douyin/storyboard.md)：按真实音频 `3:44.25` 重排的抖音分镜表
+
 ## 关键来源与依据
 
 - 创意方向：源于角色剧情语境（自定义写作）
 - 技术与节奏依据：`video/芙宁娜PV歌词卡点表.xlsx`、`video/芙宁娜PV时间轴剪辑脚本.xlsx`
 - 口径定义来源：`video/芙宁娜角色PV最终定稿-口径统一版.md`
+- 执行时长依据：用户确认真实音频时长为 `3:44.25`；旧版 `约3:10` 预估不再作为剪辑执行时长
 
 ## 可引用内容
 
@@ -30,8 +36,10 @@ status: draft
 
 | 类型 | 文件 | 说明 |
 | --- | --- | --- |
-| 纯文本脚本 | `video/芙宁娜角色PV优化版剪辑脚本-chatgpt.docx` | 优化版镜头草稿 |
-| 备选文本 | `video/芙宁娜角色PV剪辑脚本-deepseek.docx` | 备选镜头/口播草稿 |
+| 抖音脚本 | `douyin/script.md` | 当前执行版，按 `3:44.25` 重排 |
+| 抖音分镜 | `douyin/storyboard.md` | 当前执行版，按 `3:44.25` 重排 |
+| 纯文本脚本 | `video/芙宁娜角色PV优化版剪辑脚本-chatgpt.docx` | 优化版镜头草稿，旧版时长约 `3:10` |
+| 备选文本 | `video/芙宁娜角色PV剪辑脚本-deepseek.docx` | 备选镜头/口播草稿，旧版时长约 `3:10` |
 | 项目说明 | `video/原脚本优化分析.docx` | 改稿依据 |
 | 规范文档 | `video/芙宁娜PV剪映工程搭建规范.xlsx` | 剪辑工程设置 |
 | 创意说明 | `video/芙宁娜PV创意说明.xlsx` | 叙事定位与调性 |
