@@ -80,7 +80,7 @@ class MediaToolApp:
         self.srt_out_dir = StringVar()
         self.srt_model = StringVar(value="small")
         self.srt_language = StringVar(value="zh")
-        self.srt_device = StringVar(value="auto")
+        self.srt_device = StringVar(value="cpu")
         self.srt_compute_type = StringVar(value="auto")
         self.srt_beam_size = StringVar(value="5")
         self.srt_recursive = BooleanVar(value=False)

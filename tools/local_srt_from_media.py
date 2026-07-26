@@ -202,6 +202,33 @@ def create_model(model_name: str, device: str, compute_type: str):
     return WhisperModel(model_name, **kwargs)
 
 
+def is_cuda_runtime_error(exc: Exception) -> bool:
+    message = str(exc).lower()
+    markers = [
+        "cublas",
+        "cudnn",
+        "cuda",
+        "could not load library",
+        "is not found or cannot be loaded",
+    ]
+    return any(marker in message for marker in markers)
+
+
+def create_model_with_auto_fallback(model_name: str, device: str, compute_type: str):
+    try:
+        return create_model(model_name, device, compute_type)
+    except Exception as exc:
+        if device != "auto" or not is_cuda_runtime_error(exc):
+            raise
+
+        print(
+            "CUDA runtime is unavailable, falling back to CPU int8. "
+            "To force CPU directly, set --device cpu.",
+            file=sys.stderr,
+        )
+        return create_model(model_name, "cpu", "int8")
+
+
 def transcribe_file(model, input_path: Path, args: argparse.Namespace) -> tuple[object, object]:
     language = None if args.language == "auto" else args.language
     return model.transcribe(
@@ -225,8 +252,8 @@ def main() -> int:
         print("No supported media files found.", file=sys.stderr)
         return 2
 
-    print(f"Loading model: {args.model}")
-    model = create_model(args.model, args.device, args.compute_type)
+    print(f"Loading model: {args.model} (device={args.device}, compute_type={args.compute_type})")
+    model = create_model_with_auto_fallback(args.model, args.device, args.compute_type)
 
     failed = 0
     for input_path in media_files:
