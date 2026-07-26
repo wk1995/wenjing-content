@@ -8,6 +8,9 @@ It wraps:
 
 Run:
   python tools/media_tool_gui.py
+
+Optional drag-and-drop support:
+  python -m pip install -U tkinterdnd2
 """
 
 from __future__ import annotations
@@ -33,6 +36,12 @@ from tkinter import (
     Tk,
 )
 from tkinter import ttk
+
+try:
+    from tkinterdnd2 import DND_FILES, TkinterDnD
+except ImportError:
+    DND_FILES = None
+    TkinterDnD = None
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -78,9 +87,15 @@ class MediaToolApp:
         self.srt_overwrite = BooleanVar(value=False)
         self.srt_no_vad = BooleanVar(value=False)
         self.srt_initial_prompt = StringVar(value="原神，芙宁娜，枫丹，水神。")
+        self.srt_drop_status = StringVar(value=self._initial_drop_status())
 
         self._build_ui()
         self._poll_log_queue()
+
+    def _initial_drop_status(self) -> str:
+        if DND_FILES is not None and hasattr(self.root, "drop_target_register"):
+            return "可拖动文件/目录到左侧区域"
+        return "拖动添加需安装：python -m pip install tkinterdnd2"
 
     def _build_ui(self) -> None:
         root_frame = ttk.Frame(self.root, padding=10)
@@ -159,12 +174,14 @@ class MediaToolApp:
         input_scroll = ttk.Scrollbar(list_frame, command=self.srt_inputs.yview)
         input_scroll.pack(side=RIGHT, fill=Y)
         self.srt_inputs.configure(yscrollcommand=input_scroll.set)
+        self._setup_srt_drop_target(self.srt_inputs)
 
         input_buttons = ttk.Frame(input_frame)
         input_buttons.pack(side=RIGHT, fill=Y, padx=(8, 0))
         ttk.Button(input_buttons, text="添加文件", command=self.choose_srt_files).pack(fill=X)
         ttk.Button(input_buttons, text="添加目录", command=self.choose_srt_directory).pack(fill=X, pady=(6, 0))
         ttk.Button(input_buttons, text="清空", command=lambda: self.srt_inputs.delete("1.0", END)).pack(fill=X, pady=(6, 0))
+        ttk.Label(input_buttons, textvariable=self.srt_drop_status, wraplength=110).pack(fill=X, pady=(12, 0))
 
         out_row = ttk.Frame(tab)
         out_row.pack(fill=X, pady=(8, 0))
@@ -246,6 +263,24 @@ class MediaToolApp:
         for path in paths:
             if path and path not in existing:
                 self.srt_inputs.insert(END, f"{path}\n")
+                existing.add(path)
+
+    def _setup_srt_drop_target(self, widget: Text) -> None:
+        if DND_FILES is None or not hasattr(widget, "drop_target_register"):
+            return
+
+        widget.drop_target_register(DND_FILES)
+        widget.dnd_bind("<<Drop>>", self._handle_srt_drop)
+
+    def _handle_srt_drop(self, event: object) -> str:
+        data = getattr(event, "data", "")
+        if not data:
+            return "break"
+
+        paths = [path for path in self.root.tk.splitlist(data) if path]
+        self._append_srt_inputs(paths)
+        self.log(f"已拖动添加 {len(paths)} 个输入。\n")
+        return "break"
 
     def run_download(self, dry_run: bool) -> None:
         urls = self._read_text_lines(self.urls_text)
@@ -405,7 +440,7 @@ class MediaToolApp:
 
 
 def main() -> int:
-    root = Tk()
+    root = TkinterDnD.Tk() if TkinterDnD is not None else Tk()
     app = MediaToolApp(root)
     root.mainloop()
     return 0
