@@ -72,9 +72,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--device",
-        default="auto",
+        default="cpu",
         choices=["auto", "cpu", "cuda"],
-        help="Inference device. Default: auto.",
+        help="Inference device. Default: cpu.",
     )
     parser.add_argument(
         "--compute-type",
@@ -175,17 +175,25 @@ def clean_text(text: str) -> str:
 
 
 def write_srt(segments: Iterable[object], output_path: Path) -> int:
+    tmp_path = output_path.with_name(f".{output_path.name}.tmp")
     count = 0
-    with output_path.open("w", encoding="utf-8", newline="\n") as file:
-        for index, segment in enumerate(segments, start=1):
-            text = clean_text(getattr(segment, "text", ""))
-            if not text:
-                continue
 
-            start = format_timestamp(float(getattr(segment, "start")))
-            end = format_timestamp(float(getattr(segment, "end")))
-            count += 1
-            file.write(f"{index}\n{start} --> {end}\n{text}\n\n")
+    try:
+        with tmp_path.open("w", encoding="utf-8", newline="\n") as file:
+            for segment in segments:
+                text = clean_text(getattr(segment, "text", ""))
+                if not text:
+                    continue
+
+                start = format_timestamp(float(getattr(segment, "start")))
+                end = format_timestamp(float(getattr(segment, "end")))
+                count += 1
+                file.write(f"{count}\n{start} --> {end}\n{text}\n\n")
+
+        tmp_path.replace(output_path)
+    except Exception:
+        tmp_path.unlink(missing_ok=True)
+        raise
 
     return count
 
@@ -240,6 +248,12 @@ def transcribe_file(model, input_path: Path, args: argparse.Namespace) -> tuple[
     )
 
 
+def transcribe_to_srt(model, input_path: Path, srt_path: Path, args: argparse.Namespace) -> tuple[int, object]:
+    segments, info = transcribe_file(model, input_path, args)
+    count = write_srt(segments, srt_path)
+    return count, info
+
+
 def main() -> int:
     args = build_parser().parse_args()
     if args.allow_duplicate_openmp:
@@ -259,17 +273,33 @@ def main() -> int:
     for input_path in media_files:
         srt_path = output_path_for(input_path, args.out_dir)
         if srt_path.exists() and not args.overwrite:
-            print(f"Skip existing: {srt_path}")
-            continue
+            if srt_path.stat().st_size == 0:
+                print(f"Remove empty existing SRT: {srt_path}")
+                srt_path.unlink()
+            else:
+                print(f"Skip existing: {srt_path}")
+                continue
 
         print(f"Transcribing: {input_path}")
         try:
-            segments, info = transcribe_file(model, input_path, args)
-            count = write_srt(segments, srt_path)
+            count, info = transcribe_to_srt(model, input_path, srt_path, args)
         except Exception as exc:  # noqa: BLE001 - CLI should report and continue batch work.
-            failed += 1
-            print(f"Failed: {input_path}\n  {exc}", file=sys.stderr)
-            continue
+            if args.device == "auto" and is_cuda_runtime_error(exc):
+                print(
+                    "CUDA runtime failed during transcription, retrying with CPU int8.",
+                    file=sys.stderr,
+                )
+                try:
+                    model = create_model(args.model, "cpu", "int8")
+                    count, info = transcribe_to_srt(model, input_path, srt_path, args)
+                except Exception as retry_exc:  # noqa: BLE001 - CLI should report and continue batch work.
+                    failed += 1
+                    print(f"Failed: {input_path}\n  {retry_exc}", file=sys.stderr)
+                    continue
+            else:
+                failed += 1
+                print(f"Failed: {input_path}\n  {exc}", file=sys.stderr)
+                continue
 
         detected_language = getattr(info, "language", "unknown")
         duration = getattr(info, "duration", 0)
