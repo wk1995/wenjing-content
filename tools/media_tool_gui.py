@@ -85,9 +85,9 @@ class MediaToolApp:
         self.srt_beam_size = StringVar(value="5")
         self.srt_recursive = BooleanVar(value=False)
         self.srt_overwrite = BooleanVar(value=False)
-        self.srt_no_vad = BooleanVar(value=False)
+        self.srt_no_vad = BooleanVar(value=True)
         self.srt_allow_duplicate_openmp = BooleanVar(value=True)
-        self.srt_initial_prompt = StringVar(value="原神，芙宁娜，枫丹，水神。")
+        self.srt_initial_prompt = StringVar()
         self.srt_drop_status = StringVar(value=self._initial_drop_status())
 
         self._build_ui()

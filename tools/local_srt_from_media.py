@@ -91,6 +91,38 @@ def build_parser() -> argparse.ArgumentParser:
         help="Beam size for decoding. Higher may improve accuracy but is slower.",
     )
     parser.add_argument(
+        "--condition-on-previous-text",
+        action="store_true",
+        help=(
+            "Let the model use previous decoded text as context. This can help "
+            "long speech, but may cause repeated hallucinations in songs/PVs."
+        ),
+    )
+    parser.add_argument(
+        "--repetition-penalty",
+        type=float,
+        default=1.2,
+        help="Penalty for repeated text during decoding. Default: 1.2.",
+    )
+    parser.add_argument(
+        "--no-repeat-ngram-size",
+        type=int,
+        default=3,
+        help="Prevent repeated n-grams of this size during decoding. Use 0 to disable.",
+    )
+    parser.add_argument(
+        "--hallucination-silence-threshold",
+        type=float,
+        default=2.0,
+        help="Threshold used by faster-whisper to skip likely hallucinations after silence.",
+    )
+    parser.add_argument(
+        "--max-consecutive-same-text",
+        type=int,
+        default=2,
+        help="Skip identical captions repeated more than this many times in a row. Use 0 to disable.",
+    )
+    parser.add_argument(
         "--recursive",
         action="store_true",
         help="Recursively scan directory inputs for common media files.",
@@ -174,15 +206,30 @@ def clean_text(text: str) -> str:
     return " ".join(text.strip().split())
 
 
-def write_srt(segments: Iterable[object], output_path: Path) -> int:
+def normalize_caption_text(text: str) -> str:
+    return "".join(text.split()).lower()
+
+
+def write_srt(segments: Iterable[object], output_path: Path, max_consecutive_same_text: int = 2) -> int:
     tmp_path = output_path.with_name(f".{output_path.name}.tmp")
     count = 0
+    previous_normalized_text = ""
+    repeated_count = 0
 
     try:
         with tmp_path.open("w", encoding="utf-8", newline="\n") as file:
             for segment in segments:
                 text = clean_text(getattr(segment, "text", ""))
                 if not text:
+                    continue
+                normalized_text = normalize_caption_text(text)
+                if normalized_text == previous_normalized_text:
+                    repeated_count += 1
+                else:
+                    previous_normalized_text = normalized_text
+                    repeated_count = 1
+
+                if max_consecutive_same_text > 0 and repeated_count > max_consecutive_same_text:
                     continue
 
                 start = format_timestamp(float(getattr(segment, "start")))
@@ -243,6 +290,10 @@ def transcribe_file(model, input_path: Path, args: argparse.Namespace) -> tuple[
         str(input_path),
         language=language,
         beam_size=args.beam_size,
+        condition_on_previous_text=args.condition_on_previous_text,
+        repetition_penalty=args.repetition_penalty,
+        no_repeat_ngram_size=args.no_repeat_ngram_size,
+        hallucination_silence_threshold=args.hallucination_silence_threshold,
         vad_filter=not args.no_vad,
         initial_prompt=args.initial_prompt,
     )
@@ -250,8 +301,28 @@ def transcribe_file(model, input_path: Path, args: argparse.Namespace) -> tuple[
 
 def transcribe_to_srt(model, input_path: Path, srt_path: Path, args: argparse.Namespace) -> tuple[int, object]:
     segments, info = transcribe_file(model, input_path, args)
-    count = write_srt(segments, srt_path)
+    count = write_srt(segments, srt_path, args.max_consecutive_same_text)
     return count, info
+
+
+def warn_if_few_captions(count: int, duration: float, args: argparse.Namespace) -> None:
+    if duration < 60 or count >= 5:
+        return
+
+    suggestions = []
+    if not args.no_vad:
+        suggestions.append("try --no-vad for PV/music videos")
+    if args.model in {"tiny", "base", "small"}:
+        suggestions.append("try --model medium or --model large-v3")
+
+    suggestions.append("speech ASR may miss sung vocals under loud music")
+    print(
+        "Warning: only "
+        f"{count} captions were generated for a {duration:.1f}s file; "
+        + "; ".join(suggestions)
+        + ".",
+        file=sys.stderr,
+    )
 
 
 def main() -> int:
@@ -304,6 +375,7 @@ def main() -> int:
         detected_language = getattr(info, "language", "unknown")
         duration = getattr(info, "duration", 0)
         print(f"Wrote: {srt_path} ({count} captions, language={detected_language}, duration={duration:.1f}s)")
+        warn_if_few_captions(count, duration, args)
 
     return 1 if failed else 0
 
