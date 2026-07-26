@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import os
 import sys
 from pathlib import Path
 from typing import Iterable, Iterator
@@ -107,6 +108,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--initial-prompt",
         help="Optional prompt for names/terms, for example: 原神，芙宁娜，枫丹，水神。",
+    )
+    parser.add_argument(
+        "--allow-duplicate-openmp",
+        action="store_true",
+        help=(
+            "Work around libiomp5md.dll conflicts in some Anaconda/Windows "
+            "environments by setting KMP_DUPLICATE_LIB_OK=TRUE before loading "
+            "the speech model."
+        ),
     )
     return parser
 
@@ -205,6 +215,9 @@ def transcribe_file(model, input_path: Path, args: argparse.Namespace) -> tuple[
 
 def main() -> int:
     args = build_parser().parse_args()
+    if args.allow_duplicate_openmp:
+        os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+
     require_faster_whisper()
 
     media_files = list(iter_media_files(args.inputs, args.recursive))

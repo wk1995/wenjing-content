@@ -86,6 +86,7 @@ class MediaToolApp:
         self.srt_recursive = BooleanVar(value=False)
         self.srt_overwrite = BooleanVar(value=False)
         self.srt_no_vad = BooleanVar(value=False)
+        self.srt_allow_duplicate_openmp = BooleanVar(value=True)
         self.srt_initial_prompt = StringVar(value="原神，芙宁娜，枫丹，水神。")
         self.srt_drop_status = StringVar(value=self._initial_drop_status())
 
@@ -201,6 +202,7 @@ class MediaToolApp:
         ttk.Checkbutton(options, text="递归扫描目录", variable=self.srt_recursive).grid(row=3, column=0, sticky="w", pady=(8, 0))
         ttk.Checkbutton(options, text="覆盖已有 SRT", variable=self.srt_overwrite).grid(row=3, column=1, sticky="w", pady=(8, 0))
         ttk.Checkbutton(options, text="关闭静音过滤", variable=self.srt_no_vad).grid(row=3, column=2, sticky="w", pady=(8, 0))
+        ttk.Checkbutton(options, text="OpenMP 兼容模式", variable=self.srt_allow_duplicate_openmp).grid(row=3, column=3, sticky="w", pady=(8, 0))
 
         buttons = ttk.Frame(tab)
         buttons.pack(fill=X, pady=(10, 0))
@@ -345,6 +347,8 @@ class MediaToolApp:
             command.append("--overwrite")
         if self.srt_no_vad.get():
             command.append("--no-vad")
+        if self.srt_allow_duplicate_openmp.get():
+            command.append("--allow-duplicate-openmp")
         if self.srt_initial_prompt.get().strip():
             command.extend(["--initial-prompt", self.srt_initial_prompt.get().strip()])
 
