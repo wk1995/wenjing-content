@@ -40,7 +40,7 @@ Load `[ref:pro-filmmaking-standards]` for professional film, commercial, agency,
 3. Professional production workflow: treatment, shot list, continuity ledger, reference rights map, review loop, post handoff, and delivery/QC.
 4. Post workflow: edit, conform, stitching, stabilization, audio cleanup, captions/subtitles, color, localization, versioning, textless, and delivery.
 5. First/last-frame workflow: map first frame, last frame, transition action, identity locks, and ending target.
-6. Runway workflow: model `seedance2`, `runway://` uploads, audio-reference combination rules, plan/region caveats, and SDK type lag are Runway-specific.
+6. Runway workflow: the current public model list names `seedance2`, `seedance2_fast`, and `seedance2_mini`; verify the active API reference for uploads, audio/reference rules, plan/region caveats, and SDK support before implementation.
 7. Provider/router workflow: EvoLink, OpenRouter, Kie.ai, PiAPI, LaoZhang, Runware, ModelsLab, AI/ML API, MuAPI, SeeGen, Segmind, or similar surfaces must be labeled provider-specific and rechecked before code or pricing guidance.
 8. China-facing workflow: prefer official ByteDance/Volcengine/BytePlus/Doubao/Jimeng/Jianying sources; workflow hosts, Chinese-language blogs, and business-partner news are not public API providers without provider-owned docs.
 9. Community workflow: ComfyUI or unofficial nodes must be labeled community/unverified unless sourced.

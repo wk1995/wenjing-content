@@ -1,5 +1,5 @@
 {
-  "note": "Maps every schema in schemas/ to the instances it must accept. scripts/schema_check.py fails when a schema has no entry here, so adding a schema without an example is not possible.",
+  "note": "Maps every schema in schemas/ to the instances it is intended to accept. Keep at least one valid instance for every schema when editing this runtime copy.",
   "instances": {
     "clip-contract.schema.json": [
       "examples/sequence-airport-arrival/clip-01-contract.json",
