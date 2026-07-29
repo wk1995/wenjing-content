@@ -29,6 +29,14 @@ Use only when no surface is known:
 - ask for the actual clip or final frame before continuation;
 - prefer role-bound references over unsupported feature claims.
 
+## Verified Profile: fal Seedance API
+
+Verified 2026-07-29 from the official fal Seedance page:
+
+- Reference tokens are bracketed: `[Image1]`–`[Image9]`, `[Video1]`–`[Video3]`, and `[Audio1]`–`[Audio3]`.
+- Use those exact tokens in fal prompt prose. The `@Image1` syntax used by other interfaces and examples is not a fal substitute.
+- Recheck the active endpoint documentation before submission because endpoints, field names, limits, and prices remain volatile.
+
 ## Volatile Claim Rule
 
 For current model names, pricing, upload limits, reference counts, regions, endpoint names, or authorization requirements, load source-gated references and verify with dated primary sources before making operational claims.

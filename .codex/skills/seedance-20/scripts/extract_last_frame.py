@@ -62,14 +62,18 @@ def build_record() -> str:
     return "\n".join(lines)
 
 
-def run_ffmpeg(ffmpeg: str, clip: Path, out: Path, first: bool) -> int:
+def build_ffmpeg_command(ffmpeg: str, clip: Path, out: Path, first: bool) -> list[str]:
     if first:
-        cmd = [ffmpeg, "-y", "-i", str(clip), "-frames:v", "1", "-q:v", "2", str(out)]
-    else:
-        # Seek from end-of-file, then keep overwriting one output image so the
-        # final decoded frame wins - robust across container duration quirks.
-        cmd = [ffmpeg, "-y", "-sseof", "-0.5", "-i", str(clip), "-update", "1",
-               "-frames:v", "1", "-q:v", "2", str(out)]
+        return [ffmpeg, "-y", "-i", str(clip), "-frames:v", "1", "-q:v", "2", str(out)]
+
+    # Decode the final half-second to EOF and overwrite the same image for
+    # every decoded frame.  Do not add -frames:v 1 here: that would retain the
+    # first frame after the seek rather than the clip's actual last frame.
+    return [ffmpeg, "-y", "-sseof", "-0.5", "-i", str(clip), "-update", "1", "-q:v", "2", str(out)]
+
+
+def run_ffmpeg(ffmpeg: str, clip: Path, out: Path, first: bool) -> int:
+    cmd = build_ffmpeg_command(ffmpeg, clip, out, first)
     proc = subprocess.run(cmd, capture_output=True, text=True)
     if proc.returncode != 0 or not out.exists() or out.stat().st_size == 0:
         sys.stderr.write(proc.stderr[-800:] + "\n")
@@ -97,6 +101,16 @@ def self_test() -> int:
     schema = Path(__file__).resolve().parent.parent / "schemas" / "take-review.schema.json"
     if not schema.exists():
         errors.append("schemas/take-review.schema.json missing")
+    last_frame_cmd = build_ffmpeg_command("ffmpeg", Path("clip.mp4"), Path("last.png"), False)
+    if "-frames:v" in last_frame_cmd:
+        errors.append("last-frame extraction must decode through EOF, not stop at one frame")
+    try:
+        update_index = last_frame_cmd.index("-update")
+        update_is_enabled = last_frame_cmd[update_index + 1] == "1"
+    except (ValueError, IndexError):
+        update_is_enabled = False
+    if last_frame_cmd.count("-update") != 1 or not update_is_enabled:
+        errors.append("last-frame extraction must overwrite one output while decoding the tail")
     if errors:
         print("extract_last_frame self-test FAILED:")
         for e in errors:
