@@ -1,0 +1,104 @@
+name: Skill runtime checks
+
+on:
+  pull_request:
+    paths:
+      - ".codex/skills/seedance-20/**"
+      - ".codex/skills/wenjing-video-script/**"
+      - ".codex/skills/wenjing-douyin-script/**"
+      - ".github/workflows/skill-runtime.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - ".codex/skills/seedance-20/**"
+      - ".codex/skills/wenjing-video-script/**"
+      - ".codex/skills/wenjing-douyin-script/**"
+      - ".github/workflows/skill-runtime.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-skill-runtime:
+    name: Validate vendored skill runtime
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate runtime boundary
+        run: python3 .codex/skills/seedance-20/scripts/validate_runtime.py --strict
+
+      - name: Validate frame-extractor wiring
+        run: python3 .codex/skills/seedance-20/scripts/extract_last_frame.py --self-test --strict
+
+      - name: Compile shipped Python scripts
+        run: python3 -m compileall -q .codex/skills/seedance-20/scripts
+
+      - name: Parse shipped JSON
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path(".codex/skills/seedance-20")
+          files = [
+              path
+              for directory in ("schemas", "validation", "examples")
+              for path in (root / directory).rglob("*.json")
+          ]
+          if not files:
+              raise SystemExit("no runtime JSON files found")
+          for path in files:
+              json.loads(path.read_text(encoding="utf-8"))
+          print(f"Parsed {len(files)} JSON files.")
+          PY
+
+      - name: Check relative Markdown links
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          from urllib.parse import unquote, urlparse
+
+          roots = [
+              Path(".codex/skills/seedance-20"),
+              Path(".codex/skills/wenjing-video-script"),
+              Path(".codex/skills/wenjing-douyin-script"),
+          ]
+          pattern = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
+          errors = []
+          for root in roots:
+              for source in root.rglob("*.md"):
+                  for target in pattern.findall(source.read_text(encoding="utf-8")):
+                      href = target.split(maxsplit=1)[0].strip("<>")
+                      if not href or href.startswith("#") or urlparse(href).scheme:
+                          continue
+                      path = href.split("#", maxsplit=1)[0]
+                      if path and not (source.parent / unquote(path)).exists():
+                          errors.append(f"{source}: missing link target {href}")
+          if errors:
+              raise SystemExit("\n".join(errors))
+          print("Relative Markdown links are valid.")
+          PY
+
+      - name: Check diff whitespace
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            git diff --check "$PR_BASE_SHA" "$PR_HEAD_SHA"
+          elif [ "$EVENT_NAME" = "push" ] && [ "$PUSH_BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            git diff --check "$PUSH_BEFORE_SHA" "$PUSH_HEAD_SHA"
+          else
+            echo "No comparison range for this event; skipped diff whitespace check."
+          fi
