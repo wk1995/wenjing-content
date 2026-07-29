@@ -21,7 +21,14 @@ Use this skill to create Douyin short-video scripts, competitor breakdowns, and 
 3. If no competitor videos are provided, state that the result is based on general category patterns and ask for videos only when the missing data blocks the task.
 4. Generate a reusable formula: hook type, opening sentence pattern, shot rhythm, proof path, selling point order, and CTA.
 5. Write the full spoken script and storyboard.
-6. Audit for oral delivery, hook strength, timing, platform compliance, and AI-flavored phrasing.
+6. If the selected shots need Seedance-generated footage, invoke `$seedance-20` only after the script and storyboard are settled. Give it each shot's visual objective, duration, aspect ratio, reference roles, and continuity requirements; keep hook strategy, copy, CTA, and Douyin compliance under this skill's control.
+7. Audit for oral delivery, hook strength, timing, platform compliance, and AI-flavored phrasing.
+
+## AI-Generated Footage (Optional)
+
+- `$seedance-20` is an optional, commit-pinned production skill for Seedance 2.0 footage. Its source and upstream provenance are recorded in `.codex/skills/seedance-20/PROVENANCE.md`.
+- Use it to turn approved storyboard shots into generation prompts, reference contracts, or continuation plans. Do not use it to replace audience insight, commercial claims review, or the first-three-seconds strategy above.
+- Record the chosen model surface, prompt, reference-asset roles, accepted-take result, and any factual platform claims in the concrete project's `sources.md` or `douyin/storyboard.md`, so later revisions remain reproducible.
 
 ## References
 

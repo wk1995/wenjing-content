@@ -170,6 +170,7 @@ juejin/
 | --- | --- |
 | `$wenjing-news-article-drafter` | `.codex/skills/wenjing-news-article-drafter/SKILL.md` |
 | `$wenjing-wechat-article` | `.codex/skills/wenjing-wechat-article/SKILL.md` |
+| `$wenjing-video-script` | `.codex/skills/wenjing-video-script/SKILL.md` |
 | `$wenjing-douyin-script` | `.codex/skills/wenjing-douyin-script/SKILL.md` |
 | `$wenjing-xiaohongshu-copy` | `.codex/skills/wenjing-xiaohongshu-copy/SKILL.md` |
 | `$tardiformatter-wechat-format` | `.codex/skills/tardiformatter-wechat-format/SKILL.md` |
@@ -183,6 +184,8 @@ juejin/
 使用 $wenjing-wechat-article，基于 projects/2026-07-edge-ai-intro/wechat/article.md 写一篇端侧 AI 公众号文章。
 
 使用 $wenjing-douyin-script，基于 projects/2026-07-edge-ai-intro/douyin/script.md 生成一条 30 秒技术科普视频脚本。
+
+使用 $wenjing-video-script，优化 projects/2026-07-edge-ai-intro/douyin/script.md 的前三秒钩子、口播节奏和分镜，不改变已核验事实。
 
 使用 $wenjing-xiaohongshu-copy，把 projects/2026-07-edge-ai-intro/wechat/article.md 改成小红书笔记。
 
