@@ -1,0 +1,4 @@
+interface:
+  display_name: "文镜视频脚本"
+  short_description: "生成诊断并优化抖音视频号小红书等平台的中文短视频脚本与分镜"
+  default_prompt: "使用 $wenjing-video-script 基于需求生成中文短视频脚本，或优化现有脚本。"
