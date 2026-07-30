@@ -10,6 +10,9 @@ __pycache__/
 *.mov
 *.mkv
 *.avi
+projects/最后的借口+芙宁娜pv/tools/jianying-media-manifest.json
+projects/最后的借口+芙宁娜pv/tools/.venv/
+.codex/skills/jianying-editor/
 
 # Secrets
 .env

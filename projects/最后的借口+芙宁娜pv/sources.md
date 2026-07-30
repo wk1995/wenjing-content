@@ -51,6 +51,13 @@ status: draft
 
 运行时依赖不随项目提交：下载工具需要 `yt-dlp`；本地转写需要 `faster-whisper`；图形界面的拖拽支持可选安装 `tkinterdnd2`。
 
+### 剪映草稿自动搭建（2026-07-30）
+
+- 本仓库已纳入本地 Skill：`.codex/skills/jianying-editor-pinned/`；来源、固定 commit、MIT 许可证与本地修改边界见其 `PROVENANCE.md`。本地镜像与上游在纳入时均为 commit `f421c8a036f4fda888a83b38fc90bb9c00d6faa9`。
+- [tools/build_jianying_draft.py](tools/build_jianying_draft.py)：从已获准的本地素材、固定 `3:44.839` 秒主时间轴与本项目 SRT 创建供审片的国内剪映专业版草稿。默认不会覆盖同名草稿；只有显式传入 `--replace` 才会替换。
+- [tools/jianying-media-manifest.example.json](tools/jianying-media-manifest.example.json)：素材映射模板。实际文件须复制为 `jianying-media-manifest.json`，使用绝对路径填写，且已被 `.gitignore` 排除；不得填入未获准发布的素材。
+- 自动化仅完成已列素材的编排和 SRT 导入；`2:31-2:45` 的 BGM 压低、原生特效资源 ID、字幕安全区与最终导出必须在剪映内审片确认。未因本次工程准备调用 Pixelle-Video 或生成任何 AI 角色/补画面素材。
+
 ## 素材清单（内部）
 
 | 类型 | 文件 | 说明 |
