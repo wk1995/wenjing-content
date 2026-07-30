@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Desktop GUI for the local media tools in this repository.
+Desktop GUI for the media tools used by this Furina PV project.
 
 It wraps:
-  - tools/furina_pv_downloader.py
-  - tools/local_srt_from_media.py
+  - furina_pv_downloader.py
+  - local_srt_from_media.py
 
 Run:
-  python tools/media_tool_gui.py
+  python projects/最后的借口+芙宁娜pv/tools/media_tool_gui.py
 
 Optional drag-and-drop support:
   python -m pip install -U tkinterdnd2
@@ -44,11 +44,11 @@ except ImportError:
     TkinterDnD = None
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_DIR = Path(__file__).resolve().parent
 DOWNLOAD_SCRIPT = TOOLS_DIR / "furina_pv_downloader.py"
 SRT_SCRIPT = TOOLS_DIR / "local_srt_from_media.py"
-DEFAULT_DOWNLOAD_DIR = REPO_ROOT / "_downloads" / "furina-pv"
+DEFAULT_DOWNLOAD_DIR = PROJECT_ROOT / "_temp" / "downloads"
 MEDIA_FILETYPES = [
     ("Media files", "*.mp4 *.mov *.mkv *.avi *.webm *.mp3 *.wav *.m4a *.flac *.aac *.ogg *.wma"),
     ("All files", "*.*"),
@@ -367,7 +367,7 @@ class MediaToolApp:
         try:
             self.process = subprocess.Popen(
                 command,
-                cwd=str(REPO_ROOT),
+                cwd=str(PROJECT_ROOT),
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 text=True,

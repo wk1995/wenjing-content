@@ -34,6 +34,15 @@ status: draft
 
 - 暂无外部公开源引用；本项目为创作内部产物，引用信息集中在内部脚本版本与时间轴文件内。
 
+## 项目工具
+
+- [tools/furina_pv_downloader.py](tools/furina_pv_downloader.py)：下载公开的芙宁娜 PV 参考链接；默认输出到项目 `_temp/downloads/`，不提交下载媒体。
+- [tools/furina_pv_urls.example.txt](tools/furina_pv_urls.example.txt)：下载链接示例文件；仅填写已获准使用的公开链接。
+- [tools/local_srt_from_media.py](tools/local_srt_from_media.py)：使用本地 `faster-whisper` 从音视频生成 SRT；歌曲或 PV 的演唱识别结果必须人工核对。
+- [tools/media_tool_gui.py](tools/media_tool_gui.py) 与 [tools/run_media_tool_gui.bat](tools/run_media_tool_gui.bat)：项目工具图形界面及 Windows 启动入口。
+
+运行时依赖不随项目提交：下载工具需要 `yt-dlp`；本地转写需要 `faster-whisper`；图形界面的拖拽支持可选安装 `tkinterdnd2`。
+
 ## 素材清单（内部）
 
 | 类型 | 文件 | 说明 |

@@ -10,9 +10,9 @@ Install dependency:
   python -m pip install -U faster-whisper
 
 Examples:
-  python tools/local_srt_from_media.py input.mp4
-  python tools/local_srt_from_media.py input.mp4 -o subtitles --model medium --language zh
-  python tools/local_srt_from_media.py "D:/videos" --recursive --model large-v3
+  python "projects/最后的借口+芙宁娜pv/tools/local_srt_from_media.py" input.mp4
+  python "projects/最后的借口+芙宁娜pv/tools/local_srt_from_media.py" input.mp4 -o subtitles --model medium --language zh
+  python "projects/最后的借口+芙宁娜pv/tools/local_srt_from_media.py" "D:/videos" --recursive --model large-v3
 """
 
 from __future__ import annotations

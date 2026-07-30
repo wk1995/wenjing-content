@@ -7,8 +7,8 @@ Typical supported sources include Bilibili, YouTube, TikTok/Douyin,
 X/Twitter, Weibo, Instagram and many other public video pages.
 
 Usage:
-  python tools/furina_pv_downloader.py --url-file tools/furina_pv_urls.example.txt
-  python tools/furina_pv_downloader.py "https://www.bilibili.com/video/..."
+  python "projects/最后的借口+芙宁娜pv/tools/furina_pv_downloader.py" --url-file "projects/最后的借口+芙宁娜pv/tools/furina_pv_urls.example.txt"
+  python "projects/最后的借口+芙宁娜pv/tools/furina_pv_downloader.py" "https://www.bilibili.com/video/..."
 
 Install dependency:
   python -m pip install -U yt-dlp
@@ -26,7 +26,8 @@ from pathlib import Path
 from typing import Iterable
 
 
-DEFAULT_OUT_DIR = Path("_downloads") / "furina-pv"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_OUT_DIR = PROJECT_ROOT / "_temp" / "downloads"
 DEFAULT_KEYWORDS = ["芙宁娜", "Furina", "Focalors", "芙卡洛斯"]
 
 
