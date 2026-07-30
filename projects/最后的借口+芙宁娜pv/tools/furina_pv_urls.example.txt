@@ -1,10 +1,14 @@
-# One video/post URL per line.
-# Keep only URLs you are allowed to download and use.
-#
-# Examples:
-# https://www.bilibili.com/video/BVxxxxxxxxxx
-# https://www.youtube.com/watch?v=xxxxxxxxxxx
-# https://www.douyin.com/video/0000000000000000000
-# https://www.tiktok.com/@account/video/0000000000000000000
-# https://twitter.com/account/status/0000000000000000000
-# https://weibo.com/0000000000/xxxxxxxxx
+# One verified public video/post URL per line.
+# Downloaded material is for internal review only; do not treat public access as
+# permission to publish, redistribute, or use it in the final cut.
+# Verified: 2026-07-30. Source account: Bilibili 原神（official）.
+
+# 《原神》芙宁娜角色PV——「戏中人」
+https://www.bilibili.com/video/BV1oa4y1X7Zt/
+
+# 《原神》角色演示-「芙宁娜：世界皆舞台」
+https://www.bilibili.com/video/BV1ZG411X71k/
+
+# The official Weibo account page was verified, but no corresponding post URL
+# was collected in this run. Add a concrete, verified public post URL here only.
+# https://weibo.com/ysmihoyo

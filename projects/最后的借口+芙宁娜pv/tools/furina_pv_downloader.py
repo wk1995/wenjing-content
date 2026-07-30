@@ -9,6 +9,7 @@ X/Twitter, Weibo, Instagram and many other public video pages.
 Usage:
   python "projects/最后的借口+芙宁娜pv/tools/furina_pv_downloader.py" --url-file "projects/最后的借口+芙宁娜pv/tools/furina_pv_urls.example.txt"
   python "projects/最后的借口+芙宁娜pv/tools/furina_pv_downloader.py" "https://www.bilibili.com/video/..."
+  python "projects/最后的借口+芙宁娜pv/tools/furina_pv_downloader.py" --playlist "https://www.bilibili.com/video/..."
 
 Install dependency:
   python -m pip install -U yt-dlp
@@ -62,6 +63,14 @@ def build_parser() -> argparse.ArgumentParser:
         default="mp4",
         choices=["mp4", "mkv", "webm"],
         help="Container used when yt-dlp merges video and audio. Default: mp4.",
+    )
+    parser.add_argument(
+        "--playlist",
+        action="store_true",
+        help=(
+            "Download every item from a playlist or Bilibili multi-language anthology. "
+            "By default, only the primary video is downloaded."
+        ),
     )
     parser.add_argument(
         "--cookies",
@@ -172,6 +181,12 @@ def build_ytdlp_args(args: argparse.Namespace, urls: list[str]) -> list[str]:
         "--write-thumbnail",
         "--restrict-filenames",
     ]
+
+    # Bilibili treats its multi-language editions as an anthology. Most project
+    # downloads need the primary (Chinese) item only; retain all entries only
+    # when the caller explicitly asks for them.
+    if not args.playlist:
+        command.append("--no-playlist")
 
     if args.filter_furina:
         command.extend(["--match-filter", build_match_filter(DEFAULT_KEYWORDS + args.keyword)])
