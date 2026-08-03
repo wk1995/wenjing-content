@@ -62,6 +62,7 @@ status: draft
 - 本次润色：使用 `wenjing-anti-ai-writing` 的 `edit` 模式，收紧“趋势式”总结和对称句式，改为更具体的设备场景与读者问题；保留“我也还在学”的口吻，以及所有已核验事实、适用条件和来源。
 - 开头微调：直接以“端侧 AI 有用的地方”承接云端限制，避免“另一种形式”这类抽象过渡。
 - 开头补充：先说明云端 AI 对网络、Token/计算成本和数据处理边界的现实要求，再引出“让设备完成小而频繁任务”的端侧 AI 动机；不将云端 AI 简化为“不安全”。
+- 发布交付：新增 `wechat/article-01-publish.md`，仅保留读者可见的标题、正文与资料来源链接；使用 `wechat-anthropic` 作为 tardiformatter 的推荐样式，富文本在浏览器预览后复制到微信后台，不提交 HTML 或浏览器会话图片链接。
 - 事实边界：实时字幕、Windows Studio Effects、Gemini Nano 均有明确的设备或功能支持条件；文章不将其泛化为所有 Android 或 Windows 设备都可用。
 
 ### 文章目标
