@@ -1,0 +1,4 @@
+interface:
+  display_name: "文镜去 AI 味润色"
+  short_description: "面向公众号的中文去 AI 味审校与作者口吻润色工作流"
+  default_prompt: "Use $wenjing-anti-ai-writing to audit and refine this WeChat article while preserving its facts and author voice."
