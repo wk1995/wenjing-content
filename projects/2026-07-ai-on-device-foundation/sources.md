@@ -15,7 +15,7 @@ status: draft
 
 ## 首月 15 篇的写作资料卡
 
-首月发布计划以 2026-08-05 为首发日、每两天一篇。第 01 篇已有候选稿，但尚未在本项目中记录为已发布；发布前应补入账号从 Android 生活内容转向端侧 AI 的开头，并重新核验所有易变事实。
+首月发布计划以 2026-08-05 为首发日、每两天一篇。第 01 篇已重写为约 1,000 字的候选稿，但尚未在本项目中记录为已发布；发布前仍应按当天产品与地区可用性复核易变事实。
 
 | 篇号 | 核心读者问题 | 论点与结构 | 标题备选 | 资料要求 |
 | --- | --- | --- | --- | --- |
@@ -51,6 +51,15 @@ status: draft
 
 - `wechat/article-01.md`
 
+### 本次写作记录（2026-08-03）
+
+- 输出：`wechat/article-01.md`，约 1,000 字，状态为 `draft`。
+- 开头钩子：从“AI 原本像网页里的聊天框”与实时字幕、会议效果等设备能力的反差切入。
+- 读者问题：端侧 AI 与日常使用有什么关系，是否必须购买新设备或学习复杂工具。
+- 结构：日常场景 → 端侧/云端/端云协同 → 为什么现在出现 → 三个判断问题 → 设备自查与下一篇预告。
+- 行动引导：让读者留言“最希望设备代劳的一件小事”。
+- 事实边界：实时字幕、Windows Studio Effects、Gemini Nano 均有明确的设备或功能支持条件；文章不将其泛化为所有 Android 或 Windows 设备都可用。
+
 ### 文章目标
 
 让零基础读者知道：AI 过去主要依赖云端，但现在一部分能力正在进入手机、电脑和其他设备；端侧 AI 的价值在于低延迟、隐私、离线和个性化，但它也受到硬件限制。
@@ -72,6 +81,8 @@ status: draft
 3. 不靠云端，AI 能在自己的电脑上跑起来吗？
 4. 端侧 AI 到底是什么？从聊天、修图和语音输入讲起
 5. 低配置电脑也绕不开 AI：先从端侧 AI 说起
+
+本次推荐标题：**AI 为什么开始走进手机和电脑？一篇读懂端侧 AI**
 
 ### 摘要
 
@@ -112,12 +123,10 @@ status: draft
 
 ### 排版与配图建议
 
-- 标题下配一张“手机、电脑、云端服务器连接”的示意图。
-- 开头示例可以配一张四宫格：实时字幕、视频会议背景虚化、写作工具、相册搜索。
-- “云端 AI / 端侧 AI / 端云协同”对比表建议保留。
-- “设备自查”表格可以做成公众号卡片图，方便读者收藏。
-- 首图可以使用手机、电脑、本地芯片、云端服务器的简洁关系图。
-- 结尾图可以做成低配置设备自查清单。
+- 首图：手机、电脑与云端服务器的简洁关系图，文字只保留“本地处理 / 云端处理”。
+- 正文配图 1：实时字幕或会议背景虚化的真实设置页截图；发布前确认截图所属设备、系统与功能可用性。
+- 正文配图 2：一张“端侧 / 云端 / 端云协同”的三列对比卡片。
+- 结尾图：三个自查问题——“设备支不支持？需要联网吗？能省什么麻烦？”
 
 ### 写作注意
 
@@ -131,13 +140,13 @@ status: draft
 
 | 编号 | 类型 | 标题 | 链接 | 发布时间 | 核验日期 | 用途 | 可信度 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| S1 | 官方文档 | Microsoft Learn：Use local AI with Microsoft Foundry on Windows | https://learn.microsoft.com/en-us/windows/ai/overview | 2026-04 左右 | 2026-07-20 | Windows 本地 AI、Windows AI APIs、Foundry Local、Windows ML | 高 |
-| S2 | 官方文档 | Android Developers：Gemini Nano | https://developer.android.com/ai/gemini-nano | 2026-04 左右 | 2026-07-20 | Android AICore、Gemini Nano、端侧低延迟 | 高 |
+| S1 | 官方文档 | Microsoft Learn：Use local AI with Microsoft Foundry on Windows | https://learn.microsoft.com/en-us/windows/ai/overview | 2026-04-21 | 2026-08-03 | Windows 本地 AI、Windows AI APIs、Foundry Local、Windows ML；性能和模型支持随硬件而异 | 高 |
+| S2 | 官方文档 | Android Developers：Gemini Nano | https://developer.android.com/ai/gemini-nano | 2026-04-02 | 2026-08-03 | Gemini Nano 经 AICore 在设备端执行；离线、本地处理与设备支持边界 | 高 |
 | S3 | 官方文档 | Google Developers：Google AI Edge | https://developers.google.com/edge | 持续更新 | 2026-07-20 | Google AI Edge、跨平台端侧 AI 工具栈 | 高 |
 | S4 | 官方文档 | Apple Developer Documentation：Foundation Models | https://developer.apple.com/documentation/foundationmodels | 持续更新 | 2026-07-20 | Apple Intelligence 相关本地/私有云模型能力 | 高 |
 | S5 | 官方文档 | Google Developers：ML Kit GenAI APIs | https://developers.google.com/ml-kit/genai | 持续更新 | 2026-07-20 | Gemini Nano、AICore、本地处理和隐私场景 | 高 |
-| S6 | 官方帮助 | Google Help：Live Caption: Caption media & calls on your device | https://support.google.com/accessibility/android/answer/9350862 | 持续更新 | 2026-07-20 | Android 实时字幕作为普通人接触端侧 AI 的例子 | 高 |
-| S7 | 官方文档 | Microsoft Learn：Windows Studio Effects Overview | https://learn.microsoft.com/en-us/windows/apps/develop/windows-integration/studio-effects | 2026-05 左右 | 2026-07-20 | Windows 会议摄像头/麦克风 AI 效果示例 | 高 |
+| S6 | 官方帮助 | Google Help：Live Caption: Caption media & calls on your device | https://support.google.com/accessibility/android/answer/9350862?hl=en | 持续更新 | 2026-08-03 | Android 实时字幕的本地处理、下载语言包、机型与语言限制 | 高 |
+| S7 | 官方文档 | Microsoft Learn：Windows Studio Effects Overview | https://learn.microsoft.com/en-us/windows/apps/develop/windows-integration/studio-effects | 2026-05-04 | 2026-08-03 | 兼容 NPU 的 Windows 设备上的背景虚化、眼神校正、自动取景与语音聚焦；须有对应硬件与驱动 | 高 |
 | S8 | 官方页面 | Apple：Apple Intelligence | https://www.apple.com/apple-intelligence/ | 持续更新 | 2026-07-20 | Apple Intelligence 端侧处理与 Private Cloud Compute 背景 | 高 |
 | S9 | 官方帮助 | Apple Support：Use Writing Tools with Apple Intelligence on iPhone | https://support.apple.com/guide/iphone/find-the-right-words-with-writing-tools-iph6f08da1d2/ios | 持续更新 | 2026-07-20 | 写作工具、摘要、校对、改写等日常 AI 示例 | 高 |
 | S10 | 官方调查 | Steam Hardware & Software Survey：June 2026 | https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam | 2026-06 | 2026-07-20 | PC 内存分布参考：4GB、8GB、16GB、32GB 占比 | 中高 |
