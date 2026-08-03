@@ -121,6 +121,46 @@ status: draft
 | S10 | 官方调查 | Steam Hardware & Software Survey：June 2026 | https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam | 2026-06 | 2026-07-20 | PC 内存分布参考：4GB、8GB、16GB、32GB 占比 | 中高 |
 | S11 | 研究机构 | Counterpoint Research：Global Smartphone Average DRAM Hits Record 8.4GB in 2025 | https://counterpointresearch.com/en/insights/Global-Smartphone-Average-DRAM-Hits-Record-8.4GB-in-2025 | 2026-02-26 | 2026-07-20 | 智能手机平均 DRAM 参考 | 中高 |
 | S12 | 研究机构 | IDC：How the memory crisis is reshaping the PC and smartphone outlook | https://www.idc.com/resource-center/blog/higher-asps-lower-unit-volumes-how-the-memory-crisis-is-reshaping-the-pc-and-smartphone-outlook/ | 2026-02-26 | 2026-07-20 | 内存价格影响 PC/手机配置，8GB/12GB 档位变化 | 中高 |
+| S13 | GitHub 官方课程 | Microsoft：Edge AI for Beginners | https://github.com/microsoft/edgeai-for-beginners | 持续更新 | 2026-08-03 | 端侧 AI 入门课程；覆盖 SLM、优化、部署与本地 Agent | 高 |
+| S14 | GitHub 官方教学资料 | Edge Impulse：Embedded Machine Learning Courseware | https://github.com/edgeimpulse/courseware-embedded-machine-learning | 持续更新 | 2026-08-03 | 嵌入式 ML/TinyML 课件、阅读、练习和视频资料 | 高 |
+| S15 | GitHub 官方课程 | Arm University：AI on Arm | https://github.com/arm-university/AI-on-Arm | 持续更新 | 2026-08-03 | Raspberry Pi、Arm、量化与云边推理取舍实验 | 高 |
+| S16 | GitHub 官方项目 | Google AI Edge Gallery | https://github.com/google-ai-edge/gallery | 持续更新 | 2026-08-03 | 手机上的离线模型体验与端侧 GenAI 应用参考 | 高 |
+| S17 | GitHub 官方示例 | Google AI Edge：LiteRT Samples | https://github.com/google-ai-edge/litert-samples | 持续更新 | 2026-08-03 | Android、iOS、Python/Raspberry Pi 的视觉、音频和推理示例 | 高 |
+| S18 | GitHub 官方项目 | Google AI Edge：LiteRT | https://github.com/google-ai-edge/litert | 持续更新 | 2026-08-03 | Google 端侧 ML/GenAI 运行时、优化和硬件加速动态 | 高 |
+| S19 | GitHub 官方案例库 | Edge Impulse Expert Projects | https://github.com/edgeimpulse/expert-projects | 持续更新 | 2026-08-03 | 视觉、音频、异常检测、手势和机器人项目案例 | 高 |
+| S20 | GitHub 资源导航 | crespum/edge-ai：A curated list of resources for embedded AI | https://github.com/crespum/edge-ai | 持续更新 | 2026-08-03 | 嵌入式 AI 的项目、教程、论文与工具线索 | 中 |
+| S21 | GitHub 资源导航 | AI-in-Transportation-Lab/awesome-tinyml | https://github.com/gauravfs-14/awesome-tinyml | 持续更新 | 2026-08-03 | TinyML 的库、教程、论文和项目线索 | 中 |
+| S22 | GitHub 官方示例 | Google AI Edge：MediaPipe Samples | https://github.com/google-ai-edge/mediapipe-samples | 持续更新 | 2026-08-03 | 跨平台实时媒体与端侧 LLM 示例 | 高 |
+| S23 | GitHub 课程教材 | Harvard Edge：CS249r Machine Learning Systems | https://github.com/harvard-edge/cs249r_book | 持续更新 | 2026-08-03 | 云、边缘、移动端和 TinyML 的 ML 系统学习资料 | 高 |
+| S24 | GitHub 官方组织 | NVIDIA AI IoT | https://github.com/NVIDIA-AI-IOT | 持续更新 | 2026-08-03 | Jetson、视觉、机器人与边缘 AI 动态跟踪入口 | 高 |
+
+## GitHub 学习与动态跟踪清单
+
+### 课程与教学
+
+- [Microsoft Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)：端侧 AI 系统入门，适合先建立全局认知。
+- [Edge Impulse Embedded Machine Learning Courseware](https://github.com/edgeimpulse/courseware-embedded-machine-learning)：偏嵌入式 ML/TinyML 的教学资料，可拆成课程或选题参考。
+- [Arm University AI on Arm](https://github.com/arm-university/AI-on-Arm)：偏 Arm 设备优化与实验，适合完成基础科普后继续学习。
+- [Harvard CS249r Machine Learning Systems](https://github.com/harvard-edge/cs249r_book)：面向进阶读者的 ML 系统教材，涉及云、边缘、移动端和 TinyML。
+
+### 项目与示例
+
+- [Google AI Edge Gallery](https://github.com/google-ai-edge/gallery)：完整的 Android 端侧 GenAI 应用参考。
+- [LiteRT Samples](https://github.com/google-ai-edge/litert-samples)：官方端侧视觉、音频和推理示例。
+- [MediaPipe Samples](https://github.com/google-ai-edge/mediapipe-samples)：跨平台实时媒体与端侧 LLM 示例；Android LLM 示例位于 `examples/llm_inference/android`。
+- [Edge Impulse Expert Projects](https://github.com/edgeimpulse/expert-projects)：面向真实设备的可复刻案例库。
+- [Awesome Edge AI](https://github.com/crespum/edge-ai) 与 [Awesome TinyML](https://github.com/gauravfs-14/awesome-tinyml)：用于继续扩展项目线索。
+
+### 新闻与版本动态
+
+GitHub 不适合作为单一新闻源，但适合追踪一手项目变更。优先关注下列组织或仓库的 **Releases**、**Watch → Custom**、**Issues** 与 **Discussions**：
+
+- [google-ai-edge](https://github.com/google-ai-edge)：LiteRT、MediaPipe、LiteRT-LM、Gallery 等端侧框架和应用动态。
+- [LiteRT](https://github.com/google-ai-edge/litert)：GPU/NPU、模型转换、端侧 GenAI 运行时的更新。
+- [edgeimpulse](https://github.com/edgeimpulse)：嵌入式 ML、传感器和工业端侧 AI 的教程、工具与案例。
+- [NVIDIA-AI-IOT](https://github.com/NVIDIA-AI-IOT)：Jetson、视觉、机器人与边缘 AI 动态。
+
+写资讯时必须回到对应的 Release、提交、官方公告或文档确认；不要将 README 中的路线图、未发布功能或 Issue 讨论写成已上线能力。
 
 ## 可引用事实
 

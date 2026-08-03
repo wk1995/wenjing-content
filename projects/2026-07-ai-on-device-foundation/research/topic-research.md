@@ -52,11 +52,50 @@ status: draft
 | 8GB 内存电脑的第一次本地 AI 实验 | 微信公众号/小红书/抖音 | 有实践感 | 工具选择需核验 | 高 |
 | Android 上跑 AI 的限制 | 微信公众号/抖音 | 用户关心手机 | 机型差异大 | 中 |
 | 每周端侧 AI 情报 | 微信公众号 | 可持续 | 需要稳定资料源 | 中 |
+| 端侧 AI 开发语言学习顺序 | 微信公众号/掘金 | 回答新手的实际起点问题 | 容易把不同设备路线混在一起 | 高 |
+
+## GitHub 资源观察（核验：2026-08-03）
+
+| 类型 | 资源 | 适合做什么 | 使用提醒 |
+| --- | --- | --- | --- |
+| 系统课程 | Microsoft Edge AI for Beginners | 建立端侧 SLM、优化、部署与本地 Agent 的整体认识 | 内容量较大，可按模块拆成选题 |
+| 教学课件 | Edge Impulse Embedded ML Courseware | 了解嵌入式 ML/TinyML 的课程结构、练习与案例 | 更适合作为 MCU/传感器方向的教学资料 |
+| 实验课程 | Arm University AI on Arm | 观察 Raspberry Pi、Arm、量化与云边取舍的实践路线 | 适合进阶读者，不要默认所有人有对应设备 |
+| 官方示例 | Google AI Edge Gallery、LiteRT Samples、MediaPipe Samples | 拆解手机端离线 LLM、视觉、音频和端侧推理示例 | 写具体实现前按目标系统复核 README 与依赖 |
+| 项目案例库 | Edge Impulse Expert Projects | 选择视觉、声音、手势、异常检测、机器人等可复刻案例 | 优先选择硬件要求明确、资料完整的项目 |
+| 资源导航 | Awesome Edge AI、Awesome TinyML | 查找框架、硬件、论文、教程和开源项目线索 | 属于聚合索引，关键事实需回到原始来源核验 |
+
+## 语言学习路线
+
+### 总排序
+
+| 顺序 | 语言/技术 | 在端侧 AI 中的作用 | 适合阶段 |
+| --- | --- | --- | --- |
+| 1 | Python | 训练、数据处理、模型转换、量化、评测与快速原型 | 所有方向的起点 |
+| 2 | C++ | 推理运行时、跨平台部署、性能优化；常见于 LiteRT、ONNX Runtime、MediaPipe、llama.cpp | 希望把原型部署到设备的学习者 |
+| 3 | C | MCU/TinyML、驱动和资源受限设备开发 | STM32、ESP32、传感器类项目 |
+| 4 | Kotlin（或 Java） | Android 应用接入相机、音频、GPU/NPU 和模型推理 | Android 端侧应用 |
+| 5 | Swift（必要时 Objective-C） | iPhone/iPad/macOS 应用接入 Core ML、Metal 和本地模型 | Apple 平台应用 |
+| 6 | CUDA | Jetson、机器人或边缘服务器上的 NVIDIA GPU 加速 | Jetson/高性能视觉方向 |
+| 7 | Rust | 安全、性能敏感的工具或端侧服务 | 有明确工程需求时再学 |
+| 8 | JavaScript/TypeScript | Web 端演示、浏览器端推理和 WebGPU | WebAI 或产品原型 |
+
+### 按目标设备选择
+
+```text
+通用基础：Python → C++
+MCU / TinyML：Python → C → C++
+Android：Python → C++ → Kotlin
+Apple 设备：Python → C++ → Swift
+Jetson / 机器人视觉：Python → C++ → CUDA
+浏览器端 AI：Python → JavaScript / TypeScript → WebGPU
+```
+
+这是一条开发学习路线，不代表普通读者理解端侧 AI 必须先学编程；科普内容仍应从任务、设备限制、隐私和响应速度讲起。
 
 ## 初步结论
 
 - 推荐主选题：先做“端侧 AI 入门系列”，第一篇讲清 AI 为什么开始进入手机和电脑。
 - 备选选题：直接从低配置实践切入，但对零基础读者可能跳得太快。
 - 不建议做的方向：一上来讲 llama.cpp、ONNX、NPU 等框架细节。
-- 下一步：写第一篇公众号正文前，补充 3-5 个一手资料来源，并确定最低门槛实践工具。
-
+- 下一步：写第一篇公众号正文前，补充 3-5 个一手资料来源，并确定最低门槛实践工具；开发者路线文章发布前，再按目标设备复核工具版本和语言生态。
