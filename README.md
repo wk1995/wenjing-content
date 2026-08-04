@@ -151,6 +151,7 @@ juejin/
 | --- | --- |
 | [微信公众号文章工作流](docs/workflows/wechat-article.md) | 公众号长文、教程、观点文、爆款标题和排版建议 |
 | [微信公众号技术文工作流](docs/workflows/wechat-tech-article.md) | AI、开发工具、端侧技术、效率工具等技术科普 |
+| [微信公众号 API 发布工作流](docs/workflows/wechat-publish.md) | 手动校验、草稿、预览与受审批保护的群发 |
 | [抖音视频文案工作流](docs/workflows/douyin-script.md) | 技术科普、产品种草、短视频脚本、千川素材和竞品拆解 |
 | [小红书正文文案工作流](docs/workflows/xiaohongshu-copy.md) | 小红书笔记、产品推荐、品牌语气和口语化文案 |
 
@@ -161,6 +162,7 @@ juejin/
 - 公众号编辑器检测到 Markdown 后，可以使用其“转换格式”功能；需要更完整的富文本样式时，使用 Markdown 公众号排版器或 `.codex/skills/tardiformatter-wechat-format`。
 - 不要把手写 HTML、`<section ...>`、`img://...`、内部 `[S1]` 引用标记或写作备注放进发布正文。
 - 若通过剪贴板交付，优先使用纯 Unicode 文本。不要把自制 HTML 富文本直接塞给微信公众号编辑器，容易出现乱码或源码粘贴。
+- 需要通过官方接口发布时，使用 [微信公众号 API 发布工作流](docs/workflows/wechat-publish.md)。该流程仅从 Markdown 自动渲染必要的正文 HTML；不提交密钥、不自动触发群发，并要求人工审批与二次确认。
 
 ## 本地 Codex Skills
 

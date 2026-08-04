@@ -1,0 +1,109 @@
+name: WeChat Official Account Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "validate = no API call; draft = upload a draft; preview = send one preview; send = mass send"
+        required: true
+        type: choice
+        default: validate
+        options:
+          - validate
+          - draft
+          - preview
+          - send
+      article_path:
+        description: "Repository-relative Markdown article"
+        required: true
+        type: string
+        default: projects/2026-07-ai-on-device-foundation/wechat/article-01.md
+      thumbnail_path:
+        description: "Optional repository-relative cover image; uploaded as permanent WeChat material"
+        required: false
+        type: string
+      thumbnail_media_id:
+        description: "Optional existing permanent cover media_id; takes precedence over thumbnail_path"
+        required: false
+        type: string
+      preview_to:
+        description: "Required for preview: recipient OpenID"
+        required: false
+        type: string
+      target:
+        description: "Recipient scope for send"
+        required: true
+        type: choice
+        default: all
+        options:
+          - all
+          - tag
+      tag_id:
+        description: "Required only when target is tag"
+        required: false
+        type: string
+      confirmation:
+        description: "PREVIEW, SEND_TO_ALL, or SEND_TO_TAG (required for outward delivery)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wechat-official-account-publish
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate article
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate metadata and Markdown
+        env:
+          ARTICLE_PATH: ${{ inputs.article_path }}
+        run: python3 tools/wechat_publish.py validate --article "$ARTICLE_PATH"
+
+  publish:
+    name: Draft, preview, or send
+    needs: validate
+    if: inputs.mode != 'validate'
+    runs-on: [self-hosted, wechat]
+    environment: wechat-production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Execute WeChat API operation
+        env:
+          WECHAT_APP_ID: ${{ secrets.WECHAT_APP_ID }}
+          WECHAT_APP_SECRET: ${{ secrets.WECHAT_APP_SECRET }}
+          ARTICLE_PATH: ${{ inputs.article_path }}
+          THUMBNAIL_PATH: ${{ inputs.thumbnail_path }}
+          THUMBNAIL_MEDIA_ID: ${{ inputs.thumbnail_media_id }}
+          PREVIEW_TO: ${{ inputs.preview_to }}
+          TARGET: ${{ inputs.target }}
+          TAG_ID: ${{ inputs.tag_id }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+          REPORT_PATH: ${{ runner.temp }}/wechat-publish-report.json
+          PUBLISH_MODE: ${{ inputs.mode }}
+        run: |
+          args=("$PUBLISH_MODE" --article "$ARTICLE_PATH" --target "$TARGET" --confirmation "$CONFIRMATION" --report "$REPORT_PATH")
+          if [[ -n "$THUMBNAIL_PATH" ]]; then args+=(--thumbnail-path "$THUMBNAIL_PATH"); fi
+          if [[ -n "$THUMBNAIL_MEDIA_ID" ]]; then args+=(--thumbnail-media-id "$THUMBNAIL_MEDIA_ID"); fi
+          if [[ -n "$PREVIEW_TO" ]]; then args+=(--preview-to "$PREVIEW_TO"); fi
+          if [[ -n "$TAG_ID" ]]; then args+=(--tag-id "$TAG_ID"); fi
+          python3 tools/wechat_publish.py "${args[@]}"
+        shell: bash
+      - name: Upload sanitized report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wechat-publish-report
+          path: ${{ runner.temp }}/wechat-publish-report.json
+          if-no-files-found: ignore

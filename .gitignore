@@ -4,6 +4,7 @@ _temp/
 _downloads/
 __pycache__/
 *.pyc
+wechat-publish-report.json
 
 # Video and large media drafts
 *.mp4
