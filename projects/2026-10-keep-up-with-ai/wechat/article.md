@@ -2,11 +2,13 @@
 template: platforms/wechat/article
 template_version: 2026-07-20
 platform: wechat
-status: draft
+status: archived
 title: "看领导发 AI 消息一脸懵？我用一个笨办法开始追上了"
 ---
 
 # 看领导发 AI 消息一脸懵？我用一个笨办法开始追上了
+
+> 2026-10-15 起，项目主题改为「AI 资讯日更」。这篇是旧定位草稿，已停用，不作为当前系列成稿，其中的产品时间也未按新栏目复核。
 
 你有没有过这种时候——
 

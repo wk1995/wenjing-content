@@ -35,7 +35,13 @@ template_version: 2026-07-16
 ├── wechat/
 ├── xiaohongshu/
 ├── douyin/
-└── juejin/
+├── juejin/
+├── channels/
+├── csdn/
+├── cnblogs/
+├── segmentfault/
+├── infoq/
+└── oschina/
 ```
 
 ## 平台规划
@@ -46,6 +52,12 @@ template_version: 2026-07-16
 | 小红书 |  |  |  |
 | 抖音 |  |  |  |
 | 掘金 |  |  |  |
+| 微信视频号 |  |  |  |
+| CSDN |  |  |  |
+| 博客园 |  |  |  |
+| 思否 |  |  |  |
+| InfoQ |  |  |  |
+| 开源中国 |  |  |  |
 
 ## 当前进展
 

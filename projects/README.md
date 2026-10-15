@@ -38,7 +38,19 @@ projects/{project-slug}/
 ├── douyin/
 │   ├── script.md
 │   └── storyboard.md
-└── juejin/
+├── juejin/
+│   └── article.md
+├── channels/
+│   └── script.md
+├── csdn/
+│   └── article.md
+├── cnblogs/
+│   └── article.md
+├── segmentfault/
+│   └── article.md
+├── infoq/
+│   └── article.md
+└── oschina/
     └── article.md
 ```
 

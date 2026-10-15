@@ -2,7 +2,7 @@
 
 文镜内容仓库，用来管理多平台内容项目、项目调研、内容方案、平台成稿、可复用模板、写作流程和本地 Codex Skill。
 
-这个仓库的核心单位是“项目”。每个项目都放在 `projects/` 下，项目内部再按平台拆分微信公众号、小红书、抖音、掘金等具体内容。方案、选题调研和资料来源都属于具体项目，不放在全局目录。
+这个仓库的核心单位是“项目”。每个项目都放在 `projects/` 下，项目内部再按平台拆分微信公众号、小红书、抖音、掘金、微信视频号、CSDN、博客园、思否、InfoQ、开源中国等具体内容。方案、选题调研和资料来源都属于具体项目，不放在全局目录。
 
 ## 适用内容
 
@@ -10,6 +10,11 @@
 - 小红书：种草笔记、产品推荐、教程笔记、品牌语气和正文文案。
 - 抖音：技术科普短视频、种草脚本、千川投放素材、竞品视频拆解。
 - 掘金：技术文章、实战教程、源码解析、工程经验沉淀。
+- 微信视频号：短视频口播和演示，先写脚本，人工发布。
+- CSDN、博客园：开发者实操和源码笔记。
+- 思否：具体技术问题的复盘和可复现步骤。
+- InfoQ：面向工程师和技术负责人的生产实践、架构决策。
+- 开源中国：开源项目解读、版本变化和实践。
 
 ## 内容生命周期
 
@@ -57,6 +62,12 @@
    douyin/script.md
    douyin/storyboard.md
    juejin/article.md
+   channels/script.md
+   csdn/article.md
+   cnblogs/article.md
+   segmentfault/article.md
+   infoq/article.md
+   oschina/article.md
    ```
 
 4. 在 `sources.md` 中整理单篇大纲、标题池、资料来源、可引用事实和配图建议；平台目录只保留对应平台的输出内容。
@@ -69,7 +80,8 @@
 | --- | --- |
 | `projects/` | 具体内容项目。每个项目独立存放 brief、调研、方案、资料、共用素材和平台输出内容 |
 | `templates/project/` | 项目级模板：项目 README、brief、方案、资料来源、选题调研、共用素材 |
-| `templates/platforms/` | 平台级模板：微信公众号、小红书、抖音、掘金等内容模板 |
+| `templates/platforms/` | 平台级模板：微信公众号、小红书、抖音、掘金、视频号、CSDN、博客园、思否、InfoQ、开源中国 |
+| `docs/platform-apis.md` | 平台官方发布接口和 MCP 的核验记录 |
 | `templates/CHANGELOG.md` | 模板更新记录 |
 | `docs/workflows/` | 平台级内容生产流程 |
 | `docs/skills/` | 可复用的写作能力、专题方法论和选题规范 |
@@ -97,7 +109,19 @@ projects/{project-slug}/
 ├── douyin/
 │   ├── script.md
 │   └── storyboard.md
-└── juejin/
+├── juejin/
+│   └── article.md
+├── channels/
+│   └── script.md
+├── csdn/
+│   └── article.md
+├── cnblogs/
+│   └── article.md
+├── segmentfault/
+│   └── article.md
+├── infoq/
+│   └── article.md
+└── oschina/
     └── article.md
 ```
 
@@ -123,6 +147,12 @@ wechat/
 xiaohongshu/
 douyin/
 juejin/
+channels/
+csdn/
+cnblogs/
+segmentfault/
+infoq/
+oschina/
 ```
 
 ## 模板体系
@@ -142,6 +172,12 @@ juejin/
 | [抖音脚本模板](templates/platforms/douyin/script.md) | 项目下 `douyin/script.md` 的内容基础 |
 | [抖音分镜模板](templates/platforms/douyin/storyboard.md) | 项目下 `douyin/storyboard.md` 的分镜基础 |
 | [掘金文章模板](templates/platforms/juejin/article.md) | 项目下 `juejin/article.md` 的内容基础 |
+| [视频号脚本模板](templates/platforms/channels/script.md) | 项目下 `channels/script.md` 的内容基础 |
+| [CSDN 文章模板](templates/platforms/csdn/article.md) | 项目下 `csdn/article.md` 的内容基础 |
+| [博客园文章模板](templates/platforms/cnblogs/article.md) | 项目下 `cnblogs/article.md` 的内容基础 |
+| [思否文章模板](templates/platforms/segmentfault/article.md) | 项目下 `segmentfault/article.md` 的内容基础 |
+| [InfoQ 文章模板](templates/platforms/infoq/article.md) | 项目下 `infoq/article.md` 的内容基础 |
+| [开源中国文章模板](templates/platforms/oschina/article.md) | 项目下 `oschina/article.md` 的内容基础 |
 
 模板更新时必须记录到 [模板更新记录](templates/CHANGELOG.md)。项目内容文件应保留模板名和版本，方便后续追踪。
 

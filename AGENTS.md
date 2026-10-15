@@ -8,7 +8,7 @@
 
 - 具体内容项目：`projects/`
 - 项目级调研、方案、资料来源和复盘
-- 微信公众号、小红书、抖音、掘金等平台内容
+- 微信公众号、小红书、抖音、掘金、微信视频号、CSDN、博客园、思否、InfoQ、开源中国等平台内容
 - 可复用模板：`templates/`
 - 写作流程与方法论：`docs/`
 - 本地 Codex Skill：`.codex/skills/`
@@ -51,6 +51,12 @@ wechat/
 xiaohongshu/
 douyin/
 juejin/
+channels/
+csdn/
+cnblogs/
+segmentfault/
+infoq/
+oschina/
 ```
 
 创建项目文件时，从 `templates/project/` 和 `templates/platforms/` 复制对应模板结构。
@@ -70,6 +76,12 @@ juejin/
 | 抖音脚本 | `projects/{project}/douyin/script.md` |
 | 抖音分镜 | `projects/{project}/douyin/storyboard.md` |
 | 掘金文章 | `projects/{project}/juejin/article.md` |
+| 微信视频号脚本 | `projects/{project}/channels/script.md` |
+| CSDN 文章 | `projects/{project}/csdn/article.md` |
+| 博客园文章 | `projects/{project}/cnblogs/article.md` |
+| 思否文章 | `projects/{project}/segmentfault/article.md` |
+| InfoQ 文章 | `projects/{project}/infoq/article.md` |
+| 开源中国文章 | `projects/{project}/oschina/article.md` |
 
 ## 写作流程
 
@@ -115,6 +127,20 @@ juejin/
 - 适合技术实战、工程经验、源码解析和开发者向文章。
 - 要重视代码、环境、踩坑和可复现步骤。
 - 使用 `templates/platforms/juejin/article.md`。
+
+### 微信视频号
+
+- 适合把已核验内容讲成短视频，不单独发明没有来源的事实。
+- 脚本和发布信息写入 `channels/`，不把视频文件提交进仓库。
+- 使用 `templates/platforms/channels/script.md`。
+- 2026-10-15 未核到普通视频动态的公开发布接口，不写自动发布步骤。
+
+### CSDN、博客园、思否、InfoQ、开源中国
+
+- 都适合开发者向技术文章，但读者预期不同：CSDN和博客园偏实操，思否偏具体问题，InfoQ 偏生产实践和架构决策，开源中国偏开源项目本身。
+- 平台稿使用对应的 `templates/platforms/{platform}/article.md`。
+- 只有博客园提供官方随笔发布接口，见 `docs/platform-apis.md`。接口调用必须单独确认，生成稿件时不自动发布。
+- 其余平台按人工发布处理。没有官方文档的网页私有接口不能写成可调用 API。
 
 ## 模板规则
 
