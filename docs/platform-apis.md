@@ -8,7 +8,7 @@
 | --- | --- | --- | --- |
 | 微信视频号 | 无普通动态发布接口 | 无官方发布 MCP | 只准备脚本，人工发布 |
 | CSDN | 未找到公开文档 | 未找到 | Markdown 成稿，人工粘贴 |
-| 博客园 | 有，MetaWeblog | 未找到 | 可按官方方法发布，调用前单独确认 |
+| 博客园 | 有，MetaWeblog | 未找到 | 用 `.codex/skills/cnblogs-publisher`，默认存草稿 |
 | 思否 | 未找到 | 未找到 | 人工发布 |
 | InfoQ | 未找到，公开路径是作者投稿和审核 | 未找到 | 人工投稿，审核通过才算发布 |
 | 开源中国 | 旧 OpenAPI 入口已返回页面未找到 | 未找到 | 人工发布 |
@@ -66,9 +66,11 @@ REST OpenAPI 文档：<https://api.cnblogs.com/help>
 - `blogger.getUsersBlogs`
 - `wp.newCategory`
 
-账号需在博客园设置中开启客户端访问并使用访问令牌。令牌不是登录密码，不写入仓库。生成稿件不会自动调用这些方法。
+账号需在博客园设置中开启客户端访问并使用访问令牌。令牌不是登录密码，不写入仓库。
 
-未找到博客园官方 MCP。
+本地接入在 `.codex/skills/cnblogs-publisher`。脚本使用 Python 标准库调用 `metaWeblog.newPost`，默认 `publish=false` 存草稿；只有明确要求公开时才传 `true`。GitHub 上有第三方 MCP 和 Skill，但没有博客园官方 MCP，本仓库不接入第三方实现。
+
+生成稿件不会自动调用这些方法。更新、删除和上传图片还没有接入。
 
 ## 思否
 

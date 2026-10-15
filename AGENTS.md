@@ -139,7 +139,7 @@ oschina/
 
 - 都适合开发者向技术文章，但读者预期不同：CSDN和博客园偏实操，思否偏具体问题，InfoQ 偏生产实践和架构决策，开源中国偏开源项目本身。
 - 平台稿使用对应的 `templates/platforms/{platform}/article.md`。
-- 只有博客园提供官方随笔发布接口，见 `docs/platform-apis.md`。接口调用必须单独确认，生成稿件时不自动发布。
+- 只有博客园提供官方随笔发布接口，见 `docs/platform-apis.md`。发布使用 `.codex/skills/cnblogs-publisher`，默认存草稿，生成稿件时不自动调用。
 - 其余平台按人工发布处理。没有官方文档的网页私有接口不能写成可调用 API。
 
 ## 模板规则
