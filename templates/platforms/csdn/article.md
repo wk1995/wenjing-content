@@ -4,6 +4,7 @@
 template: platforms/csdn/article
 template_version: 2026-10-15
 platform: csdn
+content_type: article
 status: draft
 ---
 

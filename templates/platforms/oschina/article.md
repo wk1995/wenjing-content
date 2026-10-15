@@ -4,6 +4,7 @@
 template: platforms/oschina/article
 template_version: 2026-10-15
 platform: oschina
+content_type: article
 status: draft
 ---
 

@@ -4,6 +4,7 @@
 template: platforms/juejin/article
 template_version: 2026-07-16
 platform: juejin
+content_type: article
 status: draft
 ---
 

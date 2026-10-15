@@ -4,6 +4,7 @@
 template: platforms/xiaohongshu/note
 template_version: 2026-07-16
 platform: xiaohongshu
+content_type: article, video
 status: draft
 ---
 

@@ -4,6 +4,7 @@
 template: platforms/cnblogs/article
 template_version: 2026-10-15
 platform: cnblogs
+content_type: article
 status: draft
 ---
 

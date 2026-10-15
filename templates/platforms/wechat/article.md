@@ -2,6 +2,7 @@
 template: platforms/wechat/article
 template_version: 2026-07-20
 platform: wechat
+content_type: article
 status: draft
 title: "微信公众号文章标题"
 ---

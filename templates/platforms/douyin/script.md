@@ -4,6 +4,7 @@
 template: platforms/douyin/script
 template_version: 2026-07-16
 platform: douyin
+content_type: video
 status: draft
 ---
 
