@@ -18,7 +18,7 @@ status: drafting
 ## 事实边界
 
 - 全部技术事实来自 2026-10-17 的 WorkBuddy 对话，模型以 Deepseek-V4.1-Flash 为主，第一轮是 grok-4.7。
-- 对话保存在 `sources/conversation.md`，机器可读版本在 `sources/conversation-data.json`。入库前所有 `hlg_` 密钥样例已替换为 `hlg_[REDACTED]`。
+- 可读原对话在 `sources.md`。含工具过程的归档在 `sources/conversation.md` 和 `sources/conversation-data.json`。入库前所有 `hlg_` 密钥样例已替换为 `hlg_[REDACTED]`。
 - 对外成稿同样不写完整密钥，不给清理用的可执行命令细节，不把样本分析写成可复现的攻击步骤。
 - 对话在「查出源头、给出清理顺序」处结束。用户是否已经执行清理、重启后任务有没有再生，本文不写成已完成。
 
