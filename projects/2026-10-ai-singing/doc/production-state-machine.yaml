@@ -1,0 +1,152 @@
+# v1 一次制作的状态机。解释见同目录 state-machine.md。
+# 与 PRD 冲突时先改 PRD，再改本文件；不得用本文件扩大 v1 范围。
+name: ai-singing-v1-production
+version: 0.1
+date: 2026-10-15
+initial: idle
+terminals:
+  - recorded_internal
+  - recorded_publishable
+  - failed
+  - stopped
+context:
+  attempt:
+    initial: 0
+    max: 3
+  public_use:
+    initial: unknown
+    values: [unknown, allowed, denied]
+states:
+  idle:
+    meaning: 尚未填写本次制作材料。
+  materials_draft:
+    meaning: 正在填写主题、语言、时长、原创歌词和风格。
+  rights_blocked:
+    meaning: 材料指向特定歌手、现成歌曲，或准备使用他人音色、未授权音源。
+  provider_unconfirmed:
+    meaning: 材料合格，但云端入口的账号、价格或使用权尚未确认。
+  ready:
+    meaning: 可以提交生成。入口已确认，且本次尚未用完 3 次机会。
+  generating:
+    meaning: 已提交生成，还没有可判断的结果。
+  reviewing:
+    meaning: 已有可播放结果，等待作者听评。
+  revision_pending:
+    meaning: 本轮未采纳，仍可修改歌词或风格。不允许更换工具。
+  recorded_internal:
+    meaning: 已选定一版并写完记录，但不得公开。v1 结束。
+  recorded_publishable:
+    meaning: 已选定一版并写完记录，且入口条款允许公开。v1 结束，仍不自动进入平台成稿。
+  failed:
+    meaning: 3 次都没有可采纳结果，失败原因已记录。v1 结束。
+  stopped:
+    meaning: 入口不可用、条款不明确，或试图更换未评估工具。已记录原因。v1 结束。
+transitions:
+  - from: idle
+    event: begin
+    to: materials_draft
+  - from: materials_draft
+    event: submit_materials
+    guard: rights_violation
+    to: rights_blocked
+  - from: materials_draft
+    event: submit_materials
+    guard: materials_valid_and_provider_unconfirmed
+    to: provider_unconfirmed
+  - from: materials_draft
+    event: submit_materials
+    guard: materials_valid_and_provider_confirmed
+    to: ready
+  - from: materials_draft
+    event: abort
+    guard: reason_recorded
+    to: stopped
+  - from: rights_blocked
+    event: replace_materials
+    to: materials_draft
+  - from: rights_blocked
+    event: abort
+    guard: reason_recorded
+    to: stopped
+  - from: provider_unconfirmed
+    event: confirm_provider
+    guard: account_usable_and_price_known_and_public_use_explicit
+    to: ready
+    effects: [set_public_use_allowed_or_denied]
+  - from: provider_unconfirmed
+    event: provider_blocked
+    guard: reason_recorded
+    to: stopped
+  - from: ready
+    event: generate
+    guard: attempt_below_max
+    to: generating
+    effects: [increment_attempt]
+  - from: ready
+    event: abort
+    guard: reason_recorded
+    to: stopped
+  - from: generating
+    event: audio_ready
+    guard: playable_audio_outside_repo
+    to: reviewing
+  - from: generating
+    event: audio_failed
+    guard: attempt_below_max_and_reason_recorded
+    to: revision_pending
+  - from: generating
+    event: audio_failed
+    guard: attempt_at_max_and_reason_recorded
+    to: failed
+  - from: reviewing
+    event: reject_take
+    guard: attempt_below_max_and_reason_recorded
+    to: revision_pending
+  - from: reviewing
+    event: reject_take
+    guard: attempt_at_max_and_reason_recorded
+    to: failed
+  - from: reviewing
+    event: accept_take
+    guard: record_complete_and_public_use_denied
+    to: recorded_internal
+  - from: reviewing
+    event: accept_take
+    guard: record_complete_and_public_use_allowed
+    to: recorded_publishable
+  - from: reviewing
+    event: abort
+    guard: reason_recorded
+    to: stopped
+  - from: revision_pending
+    event: revise_materials
+    guard: materials_valid
+    to: ready
+  - from: revision_pending
+    event: revise_materials
+    guard: rights_violation
+    to: rights_blocked
+  - from: revision_pending
+    event: abort
+    guard: reason_recorded
+    to: stopped
+forbidden:
+  - event: switch_tool
+    sink: stopped
+    condition: 任何非终态试图更换入口、改用未评估工具，或改做音色替换、翻唱、本地部署。
+    requirement: 先记录原因，再进入 stopped。不得进入 generating。
+  - event: resume
+    condition: 终态不得回到 generating、ready 或 reviewing。下一首是一次新的制作。
+guards:
+  materials_valid: 有主题、语言、30–90 秒时长、8–16 行原创歌词和风格；风格不点名自然人声音。
+  rights_violation: 点名模仿可识别自然人，复述在先歌曲主歌或副歌，或准备上传他人歌声、未授权歌曲。
+  materials_valid_and_provider_unconfirmed: materials_valid 且本次入口尚未确认。
+  materials_valid_and_provider_confirmed: materials_valid 且本次入口已经确认。
+  account_usable_and_price_known_and_public_use_explicit: 账号可用、价格已知，且公开使用权明确为允许或不允许。不明确则不能确认。
+  attempt_below_max: attempt < 3。
+  attempt_below_max_and_reason_recorded: attempt < 3，且本轮原因已记录。
+  attempt_at_max_and_reason_recorded: attempt = 3，且失败原因已记录。
+  playable_audio_outside_repo: 得到可播放音频，文件不进入 Git。
+  record_complete_and_public_use_denied: 记录含主题、歌词、原文提示词、工具、接口或模型标识、日期、听评、AI 生成标识和公开结论；公开结论为不允许。
+  record_complete_and_public_use_allowed: 同上，且公开结论为允许。允许公开不等于进入平台成稿。
+  reason_recorded: 停止或失败原因已写入本次记录。
