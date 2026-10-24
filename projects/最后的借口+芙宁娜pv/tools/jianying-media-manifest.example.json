@@ -1,0 +1,30 @@
+{
+  "draft_name": "最后的借口_芙宁娜PV_v1",
+  "canvas": { "width": 1920, "height": 1080 },
+  "bgm_path": "D:\\approved-media\\H3R3-最后的借口.wav",
+  "subtitle_srt": "video/芙宁娜PV字幕文件.srt",
+  "clips": [
+    { "slot": "001", "track": "V1_Main", "start": 0.0, "duration": 15.0, "source_start": 0.0, "path": "D:\\approved-media\\001-stage-and-empty-theatre.mp4" },
+    { "slot": "002", "track": "V1_Main", "start": 15.0, "duration": 15.0, "source_start": 0.0, "path": "D:\\approved-media\\002-crowd-and-fontaine.mp4" },
+    { "slot": "003", "track": "V1_Main", "start": 30.0, "duration": 15.0, "source_start": 0.0, "path": "D:\\approved-media\\003-practised-smile.mp4" },
+    { "slot": "004", "track": "V1_Main", "start": 45.0, "duration": 20.0, "source_start": 0.0, "path": "D:\\approved-media\\004-trial-and-rain.mp4" },
+    { "slot": "005", "track": "V2_Ambience", "start": 65.0, "duration": 20.0, "source_start": 0.0, "path": "D:\\approved-media\\005-underwater-and-solitude.mp4" },
+    { "slot": "006", "track": "V1_Main", "start": 85.0, "duration": 30.0, "source_start": 0.0, "path": "D:\\approved-media\\006-memory-and-farewell.mp4" },
+    { "slot": "007", "track": "V1_Main", "start": 115.0, "duration": 20.0, "source_start": 0.0, "path": "D:\\approved-media\\007-mirror-and-crown.mp4" },
+    { "slot": "008", "track": "V2_Ambience", "start": 135.0, "duration": 15.0, "source_start": 0.0, "path": "D:\\approved-media\\008-waves-and-fontaine-wide.mp4" },
+    { "slot": "009", "track": "V1_Main", "start": 150.0, "duration": 15.0, "source_start": 0.0, "path": "D:\\approved-media\\009-black-screen-15s.mp4" },
+    { "slot": "010", "track": "V1_Main", "start": 165.0, "duration": 25.0, "source_start": 0.0, "path": "D:\\approved-media\\010-sunlight-and-smile.mp4" },
+    { "slot": "011", "track": "V1_Main", "start": 190.0, "duration": 21.0, "source_start": 0.0, "path": "D:\\approved-media\\011-walk-and-seaside.mp4" },
+    { "slot": "012", "track": "V1_Main", "start": 211.0, "duration": 9.0, "source_start": 0.0, "path": "D:\\approved-media\\012-seaside-ending.mp4" },
+    { "slot": "013", "track": "V2_Ambience", "start": 220.0, "duration": 4.839, "source_start": 0.0, "path": "D:\\approved-media\\013-water-reflection-tail.mp4" }
+  ],
+  "audio_overlays": [
+    { "track": "A2_Voice", "start": 151.0, "duration": 14.0, "path": "D:\\approved-media\\furina-voiceover-approved.wav" },
+    { "track": "A3_SFX", "start": 0.0, "duration": 1.5, "path": "D:\\approved-media\\water-drop-approved.wav" }
+  ],
+  "notes": [
+    "Only fill this manifest with material cleared for the intended release.",
+    "Use V3_Effects only for pre-rendered, approved effect media. Native Jianying effect IDs are intentionally not guessed by the builder.",
+    "At 2:31-2:45, reduce A1_BGM manually beneath the approved character voice after opening the draft."
+  ]
+}
