@@ -6,6 +6,8 @@
 
 工具命令和返回的完整内容不放在这里，结构化摘录在 `sources/conversation-data.json`。`hlg_` 密钥样例已替换为 `hlg_[REDACTED]`。
 
+本文件只保留 10 月 17–18 日的会话原文。2026-10-24 重装后的复查属于新事实，不并入本文件，记录在 `research/post-reinstall-check.md`。
+
 ---
 
 ## 1. 用户 · 2026-10-17 16:25:00
