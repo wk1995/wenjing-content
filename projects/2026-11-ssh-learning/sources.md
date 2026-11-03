@@ -25,10 +25,10 @@ updated: 2026-11-03
 | 02 | [第一次连接](doc/02-first-connection.md) | 入门 | 没有云服务器也能开始，先自连接再跨设备 | Mac 服务入口、主机指纹、自连接、退出、Windows 连 Mac、恢复、自测 | 备用：用家里的电脑练 SSH；素材：步骤表，无用户设备截图 |
 | 03 | [密码 公钥与私钥](doc/03-key-authentication.md) | 实用 | 区分主机身份、用户认证和私钥口令 | 两类身份、文件职责、独立密钥、追加授权、强制公钥测试、代理、撤销、自测 | 备用：SSH 的两种身份验证；素材：密钥文件职责表 |
 | 04 | [连接别名与文件传输](doc/04-config-and-files.md) | 实用 | 客户端配置减少输入，传文件先看方向 | config、解析检查、执行命令、scp 上传下载、SFTP、自测 | 备用：登录以后怎么传文件；素材：参数大小写与传输方向表 |
-| 05 | [网络与隧道](doc/05-network-and-tunnels.md) | 进阶 | 认证材料不能代替网络路径 | 回环与私有地址、NAT、外部访问路径、-L、-J、自测 | 备用：为什么在公司连不上家里的 Mac；素材：NAT 和转发路径文字图 |
+| 05 | [网络与隧道](doc/05-network-and-tunnels.md) | 进阶 | 分清地址监听、SSH 跳板与系统路由，认证材料不能代替网络路径 | 回环与私有地址、A/B/C 双网卡拓扑、ListenAddress、系统转发边界、客户端源地址、NAT、公网路径、-L、-J/ProxyJump、自测 | 备用：多网卡的 B 怎样提供 SSH；素材：双网卡拓扑、任务区别表、NAT 与转发路径文字图 |
 | 06 | [安全与运维](doc/06-security-and-operations.md) | 进阶 | 权限、授权和配置变更需要分别管理 | 账号权限、开放范围、密钥管理、主机变更、配置检查、长任务、代理转发、自测 | 备用：SSH 长期使用时要管好什么；素材：配置变更顺序 |
 | 07 | [连接原理](doc/07-how-ssh-works.md) | 进阶 | 网络、主机认证、用户认证、通道各有分工 | 六步简化流程、文件对应、加密范围、免密表述、自测 | 备用：输入 ssh 后发生了什么；素材：协议流程与加密范围文字图 |
-| 08 | [排错与命令速查](doc/08-troubleshooting.md) | 查阅 | 按失败阶段找原因，避免盲目改密码和清空信任记录 | 阶段图、报错表、日志、配置、公钥测试、主机记录、权限、提问模板 | 备用：SSH 连接失败从哪里查；素材：症状与检查表 |
+| 08 | [排错与命令速查](doc/08-troubleshooting.md) | 查阅 | 按失败阶段找原因，避免盲目改密码和清空信任记录 | 阶段图、报错表、双网卡一侧不通、跳板分阶段排错、Linux 监听与路由查询、日志、配置、公钥测试、主机记录、权限、提问模板 | 备用：SSH 连接失败从哪里查；素材：症状与检查表 |
 
 ## 来源列表
 
@@ -55,6 +55,11 @@ updated: 2026-11-03
 | S17 | IETF RFC 4252 SSH Authentication Protocol | [RFC 4252](https://www.rfc-editor.org/rfc/rfc4252) | 2006-01 | 2026-11-03 | 用户认证协议基础；实际方法受实现与策略控制 | 公钥认证签名、密码认证及用户认证阶段 |
 | S18 | IETF RFC 4254 SSH Connection Protocol | [RFC 4254](https://www.rfc-editor.org/rfc/rfc4254) | 2006-01 | 2026-11-03 | 连接协议基础 | 多通道、Shell、子系统及 TCP 转发 |
 | S19 | 微软 OpenSSH Server configuration for Windows | [Windows OpenSSH 配置](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh-server-configuration) | 未作为发布日期结论使用 | 2026-11-03 | Windows OpenSSH；须区分客户端和服务端路径 | 客户端个人配置在用户主目录 .ssh/config，服务端配置位置不同 |
+| S20 | OpenBSD 服务端配置手册 | [sshd_config(5)](https://man.openbsd.org/sshd_config) | 动态手册，未固定发布日期 | 2026-11-03 | 当日 OpenBSD-current；实际服务启动、监听和策略随系统而异 | ListenAddress 本地地址与多项累加、AddressFamily、AllowTcpForwarding、DisableForwarding、PermitOpen、Match |
+| S21 | Linux 内核 IP Sysctl 文档 | [IP Sysctl](https://docs.kernel.org/networking/ip-sysctl.html) | 滚动维护，未固定发布日期 | 2026-11-03 | Linux IPv4 内核配置；不套用到 macOS/Windows | ip_forward 控制接口间 IPv4 转发，不等于 SSH 用户态 TCP 转发 |
+| S22 | IETF RFC 1812 Requirements for IP Version 4 Routers | [RFC 1812](https://www.rfc-editor.org/rfc/rfc1812) | 1995-06 | 2026-11-03 | IPv4 路由器基础模型；不用于推定具体设备配置 | 转发与路由表、下一跳、主机本地接收和转发的区别 |
+| S23 | iproute2 ss 手册 | [ss(8)](https://man7.org/linux/man-pages/man8/ss.8.html) | man7 承载的原始手册，未固定发布日期 | 2026-11-03 | Linux 安装 iproute2 的环境；不套用到 Mac/PowerShell | -l 查看监听、-n 数字形式、-t 限定 TCP |
+| S24 | iproute2 ip-route 手册 | [ip-route(8)](https://man7.org/linux/man-pages/man8/ip-route.8.html) | man7 承载的原始手册，未固定发布日期 | 2026-11-03 | Linux iproute2；查询结果受实际路由策略影响 | ip route get 及 from 参数，只查询内核选路，不添加路由 |
 
 ## 可引用事实与使用边界
 
@@ -69,11 +74,17 @@ updated: 2026-11-03
 | ExitOnForwardFailure 不验证最终目标服务可用 | S3 | 05 | 不能把隧道监听成功写成端到端服务成功 |
 | sshd -t 属于配置语法检查 | S4、S10 | 06 | 不能替代新会话与网络验证 |
 | 私有地址不作为全球唯一主机地址使用 | S13、S14 | 05 | 不据此断言用户没有公网 IPv4/IPv6 或 VPN |
+| 同一 SSH 服务可监听多个本地地址，监听与来源访问控制不同 | S20 | 05、08 | 不表示实际系统已监听所有网卡，也不表示追加地址能覆盖已有通配监听 |
+| ProxyJump 由跳板发起目标 TCP 连接，目标 SSH 认证仍在客户端完成 | S1、S3、S18、S20 | 05、08 | 不要求复制私钥到 B，也不能把 B 的 TCP 转发许可视为当然成立 |
+| 仅登录双网卡 B 或使用 SSH 跳板通常无需系统 IP 转发 | S1、S18、S21、S22 | 05、08 | 仅限本文普通主机网络模型，不代表 A、C 已获得通用跨网段路由 |
+| Linux ss 和 ip route get 可查询监听与选路 | S23、S24 | 08 | 语法示例不是实际输出，查询成功不证明对端服务可达 |
 
 ## 示例与素材规划
 
 - 文本、步骤、自测和文字图为本项目创作，未引入外部图片或视频。
 - 账号 alice、IP 192.168.1.50 是说明用虚构值，不是发现的设备信息。
+- 多网卡场景按用户的 AB、BC 描述组织为 A/B 共用网段一、B/C 共用网段二；具体地址 192.168.10.10、B 的 192.168.10.1/192.168.20.1、C 的 192.168.20.30，以及 buser/cuser 均为新增虚构示例，两段均假设 /24。未确认用户有该实际拓扑。
+- ListenAddress 片段为服务端概念示例；ProxyJump 块是 A 的客户端配置示例。未修改任何实际 SSH 服务、网卡、路由、防火墙或内核开关。
 - 127.0.0.1 自连接路线用于降低练习门槛，不代表用户已验收任何状态。
 - 端口转发示例只描述已有服务的访问路径，目标 3000 端口服务为假设前提，未安装、启动或访问。
 - 无 AI 生成媒体资产、第三方运行时包、密钥、账号凭据或接口调用记录需要纳入本项目。
