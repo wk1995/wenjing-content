@@ -1,11 +1,11 @@
-# 小红书笔记需求模板
-
 ---
 template: platforms/xiaohongshu/note
-template_version: 2026-07-16
+template_version: 2026-11-03
 platform: xiaohongshu
 status: draft
 ---
+
+# 小红书笔记需求模板
 
 ## 基本信息
 

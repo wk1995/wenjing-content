@@ -1,10 +1,10 @@
-# 项目方案模板
-
 ---
 template: project/plan
-template_version: 2026-07-16
+template_version: 2026-11-03
 status: draft
 ---
+
+# 项目方案模板
 
 ## 核心判断
 

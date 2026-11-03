@@ -1,10 +1,10 @@
-# 资料与结构模板
-
 ---
 template: project/sources
-template_version: 2026-07-16
+template_version: 2026-11-03
 status: draft
 ---
+
+# 资料与结构模板
 
 ## 资料原则
 

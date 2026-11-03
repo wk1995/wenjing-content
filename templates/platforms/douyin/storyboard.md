@@ -1,11 +1,11 @@
-# 抖音分镜模板
-
 ---
 template: platforms/douyin/storyboard
-template_version: 2026-07-16
+template_version: 2026-11-03
 platform: douyin
 status: draft
 ---
+
+# 抖音分镜模板
 
 ## 视频信息
 

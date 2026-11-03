@@ -1,10 +1,10 @@
-# 核心观点模板
-
 ---
 template: project/shared/key-points
-template_version: 2026-07-16
+template_version: 2026-11-03
 status: draft
 ---
+
+# 核心观点模板
 
 ## 一句话观点
 

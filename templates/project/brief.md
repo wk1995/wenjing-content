@@ -1,10 +1,10 @@
-# 项目 Brief 模板
-
 ---
 template: project/brief
-template_version: 2026-07-16
+template_version: 2026-11-03
 status: draft
 ---
+
+# 项目 Brief 模板
 
 ## 背景
 

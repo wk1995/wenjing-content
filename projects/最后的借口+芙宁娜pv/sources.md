@@ -9,7 +9,7 @@ status: draft
 ## 项目主线文件
 
 - [video/芙宁娜PV字幕文件.srt](video/%E8%8A%99%E5%AE%81%E5%A8%9CPV%E5%AD%97%E5%B9%95%E6%96%87%E4%BB%B6.srt)
-- [video/芙宁娜角色PV最终定稿-口径统一版.md](video/%E8%8A%99%E5%AE%81%E5%A8%9CPV%E8%A7%92%E8%89%B2PV%E6%9C%80%E7%BB%88%E5%AE%9A%E7%A8%BF-%E5%8F%A3%E5%BE%84%E7%BB%9F%E4%B8%80%E7%89%88.md)
+- [video/芙宁娜角色PV最终定稿-口径统一版.md](video/%E8%8A%99%E5%AE%81%E5%A8%9C%E8%A7%92%E8%89%B2PV%E6%9C%80%E7%BB%88%E5%AE%9A%E7%A8%BF-%E5%8F%A3%E5%BE%84%E7%BB%9F%E4%B8%80%E7%89%88.md)
 - [video/芙宁娜PV时间轴剪辑脚本.xlsx](video/%E8%8A%99%E5%AE%81%E5%A8%9CPV%E6%97%B6%E9%97%B4%E8%BD%B4%E5%89%AA%E8%BE%91%E8%84%9A%E6%9C%AC.xlsx)
 - [video/芙宁娜PV歌词卡点表.xlsx](video/%E8%8A%99%E5%AE%81%E5%A8%9CPV%E6%AD%8C%E8%AF%8D%E5%8D%A1%E7%82%B9%E8%A1%A8.xlsx)
 - [video/芙宁娜PV字幕时间轴.xlsx](video/%E8%8A%99%E5%AE%81%E5%A8%9CPV%E5%AD%97%E5%B9%95%E6%97%B6%E9%97%B4%E8%BD%B4.xlsx)

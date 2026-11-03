@@ -2,6 +2,15 @@
 
 所有具体内容项目都放在 `projects/` 下。一个项目对应一个独立文件夹，项目内可以包含多个平台版本。
 
+## 项目导航
+
+- [SSH 分层学习手册](2026-11-ssh-learning/README.md)
+- [复制 API Key 时，文案被悄悄换掉](2026-10-clipboard-key-swap/README.md)
+- [AI 端侧基础项目](2026-07-ai-on-device-foundation/README.md)
+- [《最后的借口》× 芙宁娜角色 PV](%E6%9C%80%E5%90%8E%E7%9A%84%E5%80%9F%E5%8F%A3+%E8%8A%99%E5%AE%81%E5%A8%9Cpv/README.md)
+
+[返回仓库首页](../README.md) · [Obsidian 使用说明](../docs/workflows/obsidian.md)
+
 ## 命名
 
 推荐格式：

@@ -21,3 +21,10 @@ Thumbs.db
 .vscode/
 .idea/
 /.workbuddy/
+
+# Obsidian: share portable vault settings, keep device/session state local
+/.obsidian/*
+!/.obsidian/app.json
+!/.obsidian/appearance.json
+!/.obsidian/core-plugins.json
+/.trash/

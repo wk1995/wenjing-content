@@ -1,10 +1,10 @@
-# AI 端侧基础项目选题调研
-
 ---
 template: project/research/topic-research
 template_version: 2026-07-16
 status: draft
 ---
+
+# AI 端侧基础项目选题调研
 
 ## 调研目标
 

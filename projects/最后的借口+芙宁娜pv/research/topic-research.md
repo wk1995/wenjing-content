@@ -1,10 +1,10 @@
-# 题材研究
-
 ---
 template: project/research/topic-research
 template_version: 2026-07-16
 status: draft
 ---
+
+# 题材研究
 
 ## 题材定位
 

@@ -1,10 +1,10 @@
-# AI 端侧基础项目核心观点
-
 ---
 template: project/shared/key-points
 template_version: 2026-07-16
 status: draft
 ---
+
+# AI 端侧基础项目核心观点
 
 ## 一句话观点
 

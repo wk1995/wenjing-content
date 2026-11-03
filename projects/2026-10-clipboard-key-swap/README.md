@@ -71,3 +71,14 @@ status: drafting
 - 数据表现：
 - 可复用经验：剪贴板异常要先做对照，不要先怪正在用的编辑器。
 - 下次调整：复测结果已补（重装后未复现），只能把「修复」限定为「重装后未复现」，仍不能升级为「已验证修复」。
+
+## 工作文件导航
+
+[全部项目](../README.md) · [仓库首页](../../README.md)
+
+- [原始需求](brief.md)
+- [内容方案](plan.md)
+- [资料来源与单篇结构](sources.md)
+- [选题调研](research/topic-research.md)
+- [共用大纲](shared/outline.md)
+- [核心观点](shared/key-points.md)

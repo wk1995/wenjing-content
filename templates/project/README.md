@@ -1,9 +1,9 @@
-# 项目 README 模板
-
 ---
 template: project/readme
-template_version: 2026-07-16
+template_version: 2026-11-03
 ---
+
+# 项目 README 模板
 
 # 项目名称
 

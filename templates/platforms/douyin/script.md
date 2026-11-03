@@ -1,11 +1,11 @@
-# 抖音视频脚本需求模板
-
 ---
 template: platforms/douyin/script
-template_version: 2026-07-16
+template_version: 2026-11-03
 platform: douyin
 status: draft
 ---
+
+# 抖音视频脚本需求模板
 
 ## 基本信息
 

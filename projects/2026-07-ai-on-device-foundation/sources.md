@@ -1,10 +1,10 @@
-# AI 端侧基础项目资料与结构
-
 ---
 template: project/sources
 template_version: 2026-07-16
 status: draft
 ---
+
+# AI 端侧基础项目资料与结构
 
 ## 资料原则
 

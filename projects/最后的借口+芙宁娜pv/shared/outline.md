@@ -1,10 +1,10 @@
-# 共享大纲（跨平台）
-
 ---
 template: project/shared/outline
 template_version: 2026-07-16
 status: draft
 ---
+
+# 共享大纲（跨平台）
 
 ## 大纲
 

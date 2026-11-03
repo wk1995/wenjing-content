@@ -1,10 +1,10 @@
-# AI 端侧基础项目方案
-
 ---
 template: project/plan
 template_version: 2026-07-16
 status: planning
 ---
+
+# AI 端侧基础项目方案
 
 ## 核心判断
 

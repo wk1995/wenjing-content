@@ -1,10 +1,10 @@
-# AI 端侧基础项目
-
 ---
 template: project/readme
 template_version: 2026-07-16
 status: planning
 ---
+
+# AI 端侧基础项目
 
 ## 项目简介
 
@@ -72,3 +72,14 @@ status: planning
 - 数据表现：
 - 可复用经验：
 - 下次调整：
+
+## 工作文件导航
+
+[全部项目](../README.md) · [仓库首页](../../README.md)
+
+- [原始需求](brief.md)
+- [内容方案](plan.md)
+- [资料来源与单篇结构](sources.md)
+- [选题调研](research/topic-research.md)
+- [共用大纲](shared/outline.md)
+- [核心观点](shared/key-points.md)

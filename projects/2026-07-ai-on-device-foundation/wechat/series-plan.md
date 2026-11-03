@@ -1,11 +1,11 @@
-# 微信公众号系列规划：端侧 AI 入门
-
 ---
 template: platforms/wechat/article
 template_version: 2026-07-16
 platform: wechat
 status: planning
 ---
+
+# 微信公众号系列规划：端侧 AI 入门
 
 ## 系列定位
 

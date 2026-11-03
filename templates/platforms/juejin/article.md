@@ -1,11 +1,11 @@
-# 掘金文章需求模板
-
 ---
 template: platforms/juejin/article
-template_version: 2026-07-16
+template_version: 2026-11-03
 platform: juejin
 status: draft
 ---
+
+# 掘金文章需求模板
 
 ## 基本信息
 

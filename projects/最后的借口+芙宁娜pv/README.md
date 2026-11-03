@@ -1,10 +1,10 @@
-# 项目 README
-
 ---
 template: project/readme
 template_version: 2026-07-16
 status: draft
 ---
+
+# 项目 README
 
 ## 项目名称
 
@@ -46,3 +46,14 @@ status: draft
   - `video/芙宁娜PV歌词卡点表.xlsx`
   - `video/芙宁娜PV素材需求清单.xlsx`
   - 为准。
+
+## 工作文件导航
+
+[全部项目](../README.md) · [仓库首页](../../README.md)
+
+- [原始需求](brief.md)
+- [内容方案](plan.md)
+- [资料来源与单篇结构](sources.md)
+- [选题调研](research/topic-research.md)
+- [共用大纲](shared/outline.md)
+- [核心观点](shared/key-points.md)

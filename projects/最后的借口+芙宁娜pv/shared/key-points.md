@@ -1,10 +1,10 @@
-# 关键观点与可复用表达
-
 ---
 template: project/shared/key-points
 template_version: 2026-07-16
 status: draft
 ---
+
+# 关键观点与可复用表达
 
 ## 核心观点
 

@@ -1,10 +1,10 @@
-# 共用大纲模板
-
 ---
 template: project/shared/outline
-template_version: 2026-07-16
+template_version: 2026-11-03
 status: draft
 ---
+
+# 共用大纲模板
 
 ## 主线
 
