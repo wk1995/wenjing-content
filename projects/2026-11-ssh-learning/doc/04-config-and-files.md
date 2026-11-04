@@ -1,12 +1,25 @@
 ---
 status: draft
-updated: 2026-11-03
+updated: 2026-11-04
 level: practical
 ---
 
 # 04 连接别名与文件传输
 
 学会登录后，最常见的两个需求是：少输入一长串连接参数，以及在两端之间传文件。本篇沿用家里 Mac 的自连接环境；完成[密钥练习](03-key-authentication.md)后再做。
+
+本篇命令默认在**本机 Mac 终端**执行。若刚才仍登录在 SSH 会话里，先用 `exit` 回到本机；文件传输命令也从本机发起。
+
+## 连接设置放在哪个文件
+
+| 文件或入口 | 谁使用 | 修改后影响什么 |
+| --- | --- | --- |
+| Mac/Linux 客户端 `~/.ssh/config` | 发起连接的 ssh、scp、sftp 等客户端 | 这台客户端之后发起的新连接 |
+| Windows 客户端 `$HOME\.ssh\config` | Windows OpenSSH 客户端 | Windows 之后发起的新连接，文件不带 .txt 后缀 |
+| Unix 风格服务端的 `/etc/ssh/sshd_config` 及其包含文件 | 接收连接的 SSH 服务 | 服务端监听、认证和转发等策略，生效方式依系统而定 |
+| Mac 的“远程登录”设置 | macOS 管理接收登录的入口 | 是否开启远程登录、允许哪些账号 |
+
+本篇只编辑客户端的 `config`。保存后重新发起连接即可读取新设置，不需要因此重启服务端，也不会改变已经建立的会话。
 
 ## 给连接起一个名字
 
@@ -71,6 +84,10 @@ ssh ssh-lab hostname
 
 在 Windows OpenSSH 客户端中，个人配置通常位于 `$HOME\.ssh\config`。这个文件名没有 `.txt` 后缀。不要将上面绑定 `127.0.0.1` 的练习配置原样搬过去，就期待它连接家里的 Mac。
 
+若要在 Windows 编辑个人配置，可在本机 PowerShell 执行 `notepad "$HOME\.ssh\config"`，按需新建并保存为纯文本。先检查目录是否已按第三篇创建，保存后确认实际文件名确实是 `config`。登录目标 Mac 时，`User` 填 Mac 账号，`IdentityFile` 使用第三篇在 Windows 生成的私钥路径。
+
+例如配置项可写成 `IdentityFile ~/.ssh/id_ed25519_ssh_learning_windows`，这里的 `~` 由 OpenSSH 按 Windows 当前用户的主目录解析。PowerShell 命令中的 `$HOME` 是另一种语法，不要把整条 PowerShell 命令当成配置项写入文件。
+
 ## 文件传输先分清方向
 
 `scp` 常见格式：
@@ -120,6 +137,16 @@ scp ssh-lab:ssh-learning-upload.txt ./downloaded-hello.txt
 
 这将远程文件下载到本地当前目录，并换名为 `downloaded-hello.txt`。用文本编辑器打开，检查是否是你写入的那一行。
 
+这里 `ssh-lab:文件名` 的远程相对路径按目标账号主目录理解，`./文件名` 按本机当前目录理解。上传后不会因为你之前在另一场 SSH 会话里执行过 `cd`，就自动传到那个会话的目录。
+
+有空格的本地文件名要整体加引号。例如已在当前目录准备好 `hello world.txt` 后，可以这样上传：
+
+```bash
+scp "./hello world.txt" ssh-lab:ssh-learning-space-upload.txt
+```
+
+这只是可选示例，先确认目标没有要保留的同名文件。下载时本地目标若已存在，同样可能被覆盖。
+
 ### 4 端口参数大小写
 
 | 工具 | 指定端口的参数 |
@@ -168,6 +195,8 @@ bye
 3. `sftp` 里的 `lpwd` 查看哪一端？
 
 答案：1. 不会，它只是客户端配置。2. 上传。3. 本地端。
+
+完成标准：`ssh ssh-lab` 可以登录；上传和下载后，下载文件包含原先写下的文字。只完成了登录还不算验证文件传输。
 
 ## 参考资料
 
