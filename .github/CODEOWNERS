@@ -1,0 +1,10 @@
+# CODEOWNERS
+#
+# 默认规则：仓库内所有文件都由 @wk1995 负责。
+# 配合 main 分支保护的「Require review from Code Owners」，
+# 任何改动都必须获得 @wk1995 的批准才能合入 main。
+#
+# 语法：<pattern> <owner> [<owner> ...]
+# 更具体的路径规则写在下方会覆盖上面的默认规则。
+
+* @wk1995
