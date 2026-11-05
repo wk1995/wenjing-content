@@ -161,14 +161,6 @@ status: draft
 - 不要提交 `_temp/`、`writing/_temp/`、视频下载文件、`.env`、密钥或大体积临时素材。
 - 结构迁移时尽量保留 rename，让 Git 历史清楚。
 - 修改后运行与变更相称的检查，例如 Markdown 链接、结构/格式校验、脚本自检或 `git diff --check`；不要用未覆盖实际运行时边界的检查替代关键行为验证。
-- 提交信息建议：
-
-```text
-[codex] docs: update project templates
-[codex] docs: add content project
-[codex] docs: refine wechat article draft
-[codex] docs: add douyin script
-```
 
 ### 分支与 PR
 
