@@ -161,15 +161,13 @@ status: draft
 - 不要提交 `_temp/`、`writing/_temp/`、视频下载文件、`.env`、密钥或大体积临时素材。
 - 结构迁移时尽量保留 rename，让 Git 历史清楚。
 - 修改后运行与变更相称的检查，例如 Markdown 链接、结构/格式校验、脚本自检或 `git diff --check`；不要用未覆盖实际运行时边界的检查替代关键行为验证。
-- 提交信息首行以 `[workbuddy][<模型名>]` 开头（前缀与正文之间一个半角空格），再接 Conventional Commits 类型。
-- `<模型名>` 取当前对话实际使用的模型，例如 `[workbuddy][DeepSeek-V4.1-Flash]`、`[workbuddy][grok-4.7]`；无法确定时写 `[workbuddy][AI]`。若本地工具链另有环境前缀（如 `[home][mac-mini]`），按该规则放在最外层。
-- 历史提交里的 `[codex]` 是旧约定，不追溯改写。
-- 提交信息示例：
+- 提交信息建议：
 
 ```text
-[workbuddy][DeepSeek-V4.1-Flash] docs: update project templates
-[workbuddy][grok-4.7] docs: add content project
-[workbuddy][Claude] feat: 支持导出 CSV
+[codex] docs: update project templates
+[codex] docs: add content project
+[codex] docs: refine wechat article draft
+[codex] docs: add douyin script
 ```
 
 ### 分支与 PR
