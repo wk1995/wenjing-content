@@ -170,6 +170,27 @@ status: draft
 [codex] docs: add douyin script
 ```
 
+### 分支与 PR
+
+- `main` 是默认分支且受保护：非管理员不能直接 push，必须切新分支推送后开 PR。
+- PR 合入 `main` 需要 `@wk1995` 批准（`.github/CODEOWNERS` 配合 Require review from Code Owners）。批准后 PR 若再有新提交，旧批准会失效，需要重新批准。
+- PR 中未 Resolve 的评审对话会阻止合并。
+- 禁止 force push，禁止删除 `main`。
+- 管理员绕过未被禁用：`@wk1995` 保留紧急直推和自行合并的通道，因此本人发起的 PR 会一直显示 `BLOCKED`，属正常现象。
+- 保护未强制 CI 状态检查：`.github/workflows/skill-runtime.yml` 按 `paths` 过滤，无关 PR 不会上报该检查，强制要求会导致永久 pending。
+
+推荐流程：
+
+```bash
+git fetch origin
+git switch -c <type>/<slug> origin/main
+# 改动并自检：git diff --check、结构/链接校验、可执行脚本自检
+git push -u origin <type>/<slug>
+gh pr create --base main --fill
+```
+
+分支名沿用已有习惯：`codex/<slug>`、`chore/<slug>`、`feat/<slug>`。一个 PR 只做一件事。
+
 ## 风格
 
 - 默认用中文写作和说明。
