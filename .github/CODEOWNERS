@@ -1,10 +1,15 @@
 # CODEOWNERS
 #
 # 默认规则：仓库内所有文件都由 @wk1995 负责。
-# 配合 main 分支保护的「Require review from Code Owners」，
-# 任何改动都必须获得 @wk1995 的批准才能合入 main。
+#
+# 配合 main 分支保护，改动只能通过 PR 合入 main：
+#   - 非管理员不能直接 push main，必须开 PR；
+#   - PR 需要 @wk1995 的批准才能合并（Require review from Code Owners）。
+# 管理员绕过未被禁用（enforce_admins = false），因此：
+#   - @wk1995 保留紧急直推 / 自行合并的通道；
+#   - 本人发起的 PR 拿不到「他人批准」，会一直显示 BLOCKED，需用管理员权限合并。
 #
 # 语法：<pattern> <owner> [<owner> ...]
-# 更具体的路径规则写在下方会覆盖上面的默认规则。
+# 同一文件被多条规则匹配时，文件中位置更靠后的规则生效。
 
 * @wk1995
